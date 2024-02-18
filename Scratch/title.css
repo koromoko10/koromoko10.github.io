@@ -1,0 +1,62 @@
+/*body全体のスタイル*/
+body {
+
+	/*余白を消しゴムマジックで消して殺るのさ！*/
+	margin: 0;
+	color: #575e7;
+}
+
+/*title部分*/
+.title {
+
+	background-color: black;
+	overflow: hidden;
+	border-radius: 15px;
+	box-shadow: rgba(0,0,0,0.7) 3px 3px 10px;
+}
+
+/*titleのh2タグじゃ*/
+.title h2 {
+	
+	color: white;
+	display: block;
+	float: left;
+	text-aligin: center;
+}
+
+/*titleのaタグじゃ*/
+.title a {
+	
+	font-weight: bold; 
+	font-size: x-large;
+	line-height: 150%;
+	color: white;
+	display: block;
+	cursor: pointer;
+	float: left;
+	padding: 1em 1.5em;
+	text-aligin: center;
+	text-decoration: none;
+}
+
+/*カーソルが来たゾ*/
+.title a:hover {
+
+	background-color: gold;
+	color: black;
+}
+
+/*ここから下はScratchのスタイル丸パクリ*/
+
+/*通常aタグ*/
+a {
+    text-decoration: none;
+    color: #855cd6;
+    font-weight: bold;
+}
+
+/*通常カーソルが来たゾ*/
+a:hover {
+    text-decoration: none;
+    color: #7854c0
+}
