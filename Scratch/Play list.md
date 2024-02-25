@@ -82,7 +82,7 @@
 * Bowser Battle Part 4
 * Defeated Bowser!
 
-### [#6](index.html)
+### [#6](https://koromoko10.github.io/Scratch)
 * World 01 Start
 * World 01
 * World 01 Underground
