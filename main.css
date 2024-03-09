@@ -1,0 +1,103 @@
+/*body全体のスタイル*/
+body {
+
+	/*余白を消しゴムマジックで消して殺るのさ！*/
+	/*margin: 0;*/
+	color: #575e7;
+}
+
+/*title部分*/
+.title {
+
+	background-color: black;
+	overflow: hidden;
+	border-radius: 15px;
+	box-shadow: rgba(0,0,0,0.7) 3px 3px 10px;
+}
+
+/*titleのh2タグじゃ*/
+.title h2 {
+	
+	color: white;
+	display: block;
+	float: left;
+	text-align: center;
+}
+
+/*titleのaタグじゃ*/
+.title a {
+	
+	font-weight: bold; 
+	font-size: x-large;
+	line-height: 150%;
+	color: white;
+	display: block;
+	cursor: pointer;
+	float: left;
+	padding: 1em 1.5em;
+	text-align: center;
+	text-decoration: none;
+}
+
+/*カーソルが来たゾ*/
+.title a:hover {
+
+	background-color: gold;
+	color: black;
+}
+
+/*通常aタグ*/
+a {
+    text-decoration: none;
+    color: #339900;
+    font-weight: bold;
+}
+
+/*通常カーソルが来たゾ*/
+a:hover {
+    text-decoration: none;
+    color: #006600;
+}
+
+/*content内h2タグ*/
+.content h2 {
+	font-weight: bold; 
+	font-size: x-large;
+	color: Black;
+	text-align: center;
+}
+
+/*Made by部分*/
+.madeby { 
+	font-size: x-small;
+	color: gray;
+	text-align: center;
+	float: center;
+}
+
+/*Googleカスタム検索なぜかできない、、、*/
+
+/*https://hidari-ni-usetu.com/google-custom-search-memo/の方法*/
+
+.gcse-search {
+	box-sizing:content-box;
+}
+
+/*https://saruwakakun.com/sango/comments?id=2601/の方法*/
+.gsc-search-box-tools .gsc-search-box .gsc-input {
+    font-size: 15px;
+}
+
+/*https://debuyoko.com/581/の方法*/
+#gsc-iw-id1 input[type="text"] {
+    border: none;
+    box-shadow: none;
+    line-height: normal;
+}
+
+/*Googleカスタム検索の親要素*/
+.search-parent  {
+	width: 100% !important;
+	max-width: 500px !important;
+	margin: 0 auto !important;
+}
