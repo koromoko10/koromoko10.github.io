@@ -1,0 +1,87 @@
+/*body全体のスタイル*/
+body {
+
+	/*余白を消しゴムマジックで消して殺るのさ！*/
+	/*margin: 0;*/
+	color: #White;
+
+	background-image: url(../img/dark-background.png);
+	backgroundrepeat: repeat;
+	background-attachment: fixed;
+}
+
+/*title部分*/
+.title {
+
+	background-color: black;
+	overflow: hidden;
+	border-radius: 15px;
+	box-shadow: rgba(255,255,255,1) 0px 0px 30px;
+}
+
+/*titleのh2タグじゃ*/
+.title h2 {
+	
+	color: white;
+	display: block;
+	/*float: left;:*/
+	text-align: center;
+}
+
+/*titleのaタグじゃ*/
+.title a {
+	
+	font-weight: bold; 
+	font-size: x-large;
+	line-height: 150%;
+	color: white;
+	display: block;
+	cursor: pointer;
+	float: left;
+	padding: 1em 1.5em;
+	text-align: center;
+	text-decoration: none;
+}
+
+/*カーソルが来たゾ*/
+.title a:hover {
+
+	background-color: White;
+	color: Black;
+}
+
+
+/*通常aタグ*/
+a {
+    text-decoration: none;
+    color: #339900;
+    font-weight: bold;
+}
+
+/*通常カーソルが来たゾ*/
+a:hover {
+    text-decoration: none;
+    color: #006600;
+}
+
+/*content内h2タグ*/
+.content h2 {
+	font-weight: bold; 
+	font-size: x-large;
+	color: White;
+	text-align: center;
+}
+
+/*content内その他*/
+.content {
+	color: White;
+	text-align: center;
+}
+
+/*Made by部分*/
+.madeby { 
+	font-size: x-small;
+	color: gray;
+	text-align: center;
+	float: center;
+}
