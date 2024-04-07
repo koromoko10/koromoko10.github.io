@@ -19,6 +19,7 @@ body {
 .title h2 {
 	
 	color: white;
+	font-family: "sans-serif";
 	display: block;
 	float: left;
 	text-align: center;
@@ -31,6 +32,7 @@ body {
 	font-size: x-large;
 	line-height: 150%;
 	color: white;
+	font-family: "sans-serif";
 	display: block;
 	cursor: pointer;
 	float: left;
@@ -49,6 +51,7 @@ body {
 /*通常aタグ*/
 a {
     text-decoration: none;
+	font-family: "sans-serif";
     color: #339900;
     font-weight: bold;
 }
@@ -63,6 +66,7 @@ a:hover {
 .content h2 {
 	font-weight: bold; 
 	font-size: x-large;
+	font-family: "sans-serif";
 	color: Black;
 	text-align: center;
 }
@@ -70,6 +74,7 @@ a:hover {
 /*Made by部分*/
 .madeby { 
 	font-size: x-small;
+	font-family: serif;
 	color: gray;
 	text-align: center;
 	float: center;
