@@ -47,9 +47,9 @@
       "screenshots" : [
         {
           "src": "https://koromoko10.github.io/img/koromoko10_download_store_logo_high.png",
-          "sizes": "969x979",
+          "sizes": "977x969",
           "type": "image/png",
-          "platform": "narrow",
+          "platform": "wide",
           "label": "Store logo"
         }
       ]
