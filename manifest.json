@@ -6,8 +6,8 @@
     "scope": "/",
     "display": "standalone",
     "orientation": "any",
-    "background_color": "#006400",
-    "theme_color": "#006400",
+    "background_color": "#000000",
+    "theme_color": "#000000",
     "description": "koromoko10のソフト、ツールを簡単にダウンロードします。",
     "icons": [
         {
@@ -47,7 +47,7 @@
       "screenshots" : [
         {
           "src": "https://koromoko10.github.io/img/koromoko10_download_store_logo_high.png",
-          "sizes": "977x979",
+          "sizes": "969x979",
           "type": "image/png",
           "platform": "narrow",
           "label": "Store logo"
