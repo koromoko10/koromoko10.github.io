@@ -2,7 +2,7 @@
     "name":"koromoko10ホームページアプリ",
     "author":"koromoko10",
     "author-site":"https://lit.link/koromoko10/",
-    "latest-ver":"1.1.0",
-    "description":"このバージョンではデザインを黒基調に変更、タブ機能の追加、お知らせ機能、アップデート確認などが追加されています。またインストーラーからホームページアプリをインストールできるようになりました。その他起動時間の短縮などバグ修正が含まれています。",
+    "latest-ver":"1.1.1",
+    "description":"このバージョンはアップデート機能のバグ修正、通知量の調整などがされています",
     "download":"https://github.com/koromoko10/koromoko10-homepage-app/"
 }
