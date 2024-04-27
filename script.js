@@ -1,4 +1,5 @@
 // https://webparts.cman.jp/button/gotop/　を参考に作成しています
+//なぜか動かないので放置しとく
 
 var vGoTop = {};
 function goTop(){
