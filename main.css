@@ -4,6 +4,9 @@ body {
 	/*余白を消しゴムマジックで消して殺るのさ！*/
 	/*margin: 0;*/
 	/*color: #575e7;*/
+
+	/*LINE Seed JPフォント*/
+	font-family: "LINE_Rg","游ゴシック","Yu Gothic UI","メイリオ","Meiryo UI",sans-serif;
 }
 
 /*文字選択色*/
@@ -13,6 +16,14 @@ body ::selection {
 /*FireFox対応*/
 body ::-moz-selection {
 	background-color : rgba(153, 153, 153, 0.60);      /* 選択時の背景色 */
+}
+
+
+/* フォント設定 */
+@font-face {
+ font-family: "LINE_Rg";
+ font-weight: 400;
+ src: url(/fonts/LINESeed_JP/LINESeedJP_OTF_Rg.woff) format("woff");
 }
 
 /*title部分*/
@@ -28,7 +39,7 @@ body ::-moz-selection {
 .title h2 {
 	
 	color: white;
-	font-family: "sans-serif";
+	/*font-family: "sans-serif";*/
 	display: block;
 	float: left;
 	text-align: center;
@@ -41,7 +52,7 @@ body ::-moz-selection {
 	font-size: x-large;
 	line-height: 150%;
 	color: white;
-	font-family: "sans-serif";
+	/*font-family: "sans-serif";*/
 	display: block;
 	cursor: pointer;
 	float: left;
@@ -60,7 +71,7 @@ body ::-moz-selection {
 /*通常aタグ*/
 a {
     text-decoration: none;
-	font-family: "sans-serif";
+	/*font-family: "sans-serif";*/
     color: #339900;
     font-weight: bold;
 }
@@ -75,7 +86,7 @@ a:hover {
 .content h2 {
 	font-weight: bold; 
 	font-size: x-large;
-	font-family: "sans-serif";
+	/*font-family: "sans-serif";*/
 	color: Black;
 	text-align: center;
 }
@@ -83,7 +94,7 @@ a:hover {
 /*Made by部分*/
 .madeby { 
 	font-size: x-small;
-	font-family: serif;
+	/*font-family: serif;*/
 	color: gray;
 	text-align: center;
 	float: center;
