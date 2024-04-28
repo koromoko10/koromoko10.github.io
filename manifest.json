@@ -36,6 +36,13 @@
           "url": "https://koromoko10.github.io/notification",
           "icons": [{ "src": "https://koromoko10.github.io/img/PWA/192x192_logo.png", "sizes": "192x192" }]
         },
+	{
+          "name": "tv asahi 動くロゴ再現",
+          "short_name": "tv asahi",
+          "description": "わかる人には分かります",
+          "url": "https://koromoko10.github.io/tv-asahi",
+          "icons": [{ "src": "https://koromoko10.github.io/img/PWA/192x192_logo.png", "sizes": "192x192" }]
+        },
         {
           "name": "404 Page Not Found",
           "short_name": "404 Page",
