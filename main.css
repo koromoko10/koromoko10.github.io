@@ -26,6 +26,12 @@ body ::-moz-selection {
  src: url(/fonts/LINESeed_JP/LINESeedJP_OTF_Rg.woff) format("woff");
 }
 
+@font-face {
+	font-family: "Mario_U";
+	font-weight: 400;
+	src: url(/fonts/NewSuperMarioFontU.ttf) format("truetype");
+   }
+
 /*title部分*/
 .title {
 
@@ -90,6 +96,12 @@ a:hover {
 	color: Black;
 	text-align: center;
 }
+
+/*.top-titleのh2*/
+.top-title  h2 {
+	font-family: "Mario_U","LINE_Rg";
+}
+
 
 /*Made by部分*/
 .madeby { 
