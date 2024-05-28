@@ -52,33 +52,67 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 -->
+
+<!--
+	このページは新しいデザインのテストです
+	今後このデザインに統一するかどうかは決めてません
+-->
+
 	<head>
 		<meta charset="UTF-8">
-		<meta name="description" content="koromoko10が作成したソフトウェアやツール、ゲームなどを簡単にダウンロードできる総合ダウンロードストアです！">
+		<meta name="description" content="便利なソフトウェアやツール、インディーゲームの開発をしています。基本的にはkoromoko10が個人で開発をしています。">
 		<meta name="author" content="koromoko10">
-		<meta name="keywords" content="koromoko10,koromoko10.github.io,koromoko10ダウンロードストア,ダウンロードストア">
+		<meta name="keywords" content="koromoko10,koromoko10.github.io,Pixel ACG Studio">
 		<meta name="robots" content="noindex">
 		<meta name=”robots” content=”nofollow”>
-		<title>HOME|koromoko10 download store</title>
+		<title>HOME|Pixel ACG Studio</title>
 		<link rel="author" href="https://lit.link/koromoko10/">
-		<base href="https://koromoko10.github.io/index.html">
+		<!--
+			cssなどが編集時に即反映されないので一旦コメントアウト
+		    （base指定されているせいでcssのURLが変更前の場所を指定してしまっている）
+		-->
+		<!--<base href="https://koromoko10.github.io/index.html">-->
 
 		<!--og関係-->
 		<meta property="og:url" content="https://koromoko10.github.io/">
 		<meta property="og:type" content="website">
 		<meta property="og:title" content="HOME">
-		<meta property="og:description" content="koromoko10のソフトやゲームをダウンロードします。">
-		<meta property="og:site_name" content="koromoko10 DL Store">
+		<meta property="og:description" content="ソフトウェアやインディーゲームの開発をしています。">
+		<meta property="og:site_name" content="Pixel ACG Studio">
 		<meta property="og:image" content="https://koromoko10.github.io/img/koromoko10_download_store_logo_high.png">
 
 		<!--twitter(旧X)のSummary Card関係-->
 		<meta name="twitter:card" content="summary_large_image">
 		<meta name="twitter:site" content="@koromoko10">
 		<meta name="twitter:creator" content="@koromoko10">
-		<meta name="twitter:title" content="koromoko10 download store">
-		<meta name="twitter:description" content="koromoko10が作成したソフトウェアやツール、ゲームなどを簡単にダウンロードできる総合ダウンロードストアです！">
+		<meta name="twitter:title" content="Pixel ACG Studio">
+		<meta name="twitter:description" content="便利なソフトウェアやツール、インディーゲームの開発をしています。基本的にはkoromoko10が個人で開発をしています。">
 		<meta name="twitter:image" content="https://koromoko10.github.io/img/koromoko10_download_store_logo_high.png">
 		<meta name="twitter:domain" content="koromoko10.github.io">
+
+		<!--マテリアルデザインcssライブラリ-->
+			<!-- Compiled and minified CSS -->
+			<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+			<!-- Compiled and minified JavaScript -->
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+	
+			<!--icon-->
+			<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+			<script>
+				document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('.fixed-action-btn');
+    var instances = M.FloatingActionButton.init(elems, options);
+  });
+
+  // Or with jQuery
+
+  $(document).ready(function(){
+    $('.fixed-action-btn').floatingActionButton();
+  });
+			</script>
+
 
 		<!--CSS指定-->
 		<!--CSSがなぜかぶっ飛んだとき用↓-->
@@ -86,7 +120,7 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 		<link rel="stylesheet" href="main.css">
 
 		<!--JS指定-->
-		<script src="https://koromoko10.github.io/script.js"></script>
+		<script src="script.js"></script>
 
 		<!--favicon指定-->
 		<link rel="icon" href="favicon.ico">
@@ -95,28 +129,31 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 		<link rel="manifest" href="https://koromoko10.github.io/manifest.json">
 
 		<!--上に戻るボタン-->
-		<!--復活-->
+		<!--復活させてみる-->
 		<div id="topScroll" class="topIcon" onclick="goTop()">↑</div>
 		
 	</head>
 	<body>
 
-		<!--タイトル部分-->
-		<div class="title">
-			<a href="https://koromoko10.github.io/" title="TOPに戻る">
-				<img src="/img/312x312_logo_(Not favi).png" width="30px" height="30px" alt="ホームページアイコン">
-			</a>
-			<a href="/Scratch" title="Super Mario Bros. Wonder Music #6 download">SMBW#6</a>
-			<a href="/notification" title="ヤバそうな通知を送信するプログラム">ヤバそうな通知</a>
-			<a href="/tv-asahi" title="tv asahi　動くロゴ再現">tv asahiロゴ</a>
-			<a href="/new" title="新しいデザインを試す">新デザインを試す</a>
-			<a href="https://lit.link/koromoko10" target="_blank" title="Go to:https://lit.link/koromoko10">koromoko10とは</a>
+		<!--navi-->
+		<div class="navbar-fixed">
+			<nav>
+				<div class="nav-wrapper">
+				  <a href="https://koromoko10.github.io/" class="brand-logo" title="TOPに戻る"><img src="312x312_logo_(Not favi).png" width="60px" height="60px" alt="ホームページアイコン"></a>
+				  <ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="/Scratch" title="Super Mario Bros. Wonder Music #6 download">SMBW#6</a></li>
+					<li><a href="/notification" title="ヤバそうな通知を送信するプログラム">ヤバそうな通知</a></li>
+					<li><a href="/tv-asahi" title="tv asahi　動くロゴ再現">tv asahiロゴ</a></li>
+					<li><a href="https://lit.link/koromoko10" target="_blank" title="Go to:https://lit.link/koromoko10">koromoko10とは</a></li>
+				  </ul>
+				</div>
+			  </nav>
 		</div>
+
 
 		<!--内容-->
 		<div class="content">
 
-			<br>
 
 			<center>
 				<div class="top-title">
@@ -129,7 +166,7 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 			<br>
 
 			<center>
-					<h1><b>只今作成中...</b></h1><br>
+					<h2><b>只今作成中...</b></h2><br>
 					<b>
 						<a href="https://github.com/koromoko10/koromoko10.github.io/blob/main/README.md" target="_self" title="back to TOP">ここから</a>
 					</b>
@@ -155,6 +192,17 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 			<hr>
 			<center><div class="madeby">Made by koromoko10</div></center>
 
+			<div class="fixed-action-btn">
+				<a class="btn-floating btn-large red">
+				  <i class="large material-icons">mode_edit</i>
+				</a>
+				<ul>
+				  <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
+				  <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
+				  <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
+				  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
+				</ul>
+			  </div>
 
 	</div>
 	</body>
