@@ -2,7 +2,7 @@
 
 <img width="300" src="https://koromoko10.github.io/img/koromoko10_download_store_logo_high.png" title="logo"> <br> 
 
-このサイトはkoromoko10 download storeなどのサイトになる予定です<br>
+このサイトはkoromoko10 download storeなどのサイトになる予定でしたが、Pixel ACG Studioになりそうです。<br>
 [https://koromoko10.github.io](https://koromoko10.github.io) は [Githubリポジトリ](https://github.com/koromoko10/koromoko10.github.io)に公開されています<br><br>
 
 ## 一応今見れるサイト
