@@ -1,6 +1,6 @@
 {
-    "name": "koromoko10 download store",
-    "short_name": "koromoko DL",
+    "name": "Pixel ACG Studio",
+    "short_name": "Pixel ACG",
     "id": "/?source=pwa",
     "start_url": "/?source=pwa",
     "scope": "/",
@@ -8,7 +8,7 @@
     "orientation": "any",
     "background_color": "#000000",
     "theme_color": "#000000",
-    "description": "koromoko10のソフト、ツールを簡単にダウンロードします。",
+    "description": "インディーゲームやツールを主に開発しています。",
     "icons": [
         {
             "src": "https://koromoko10.github.io/img/PWA/192x192_logo.png",
