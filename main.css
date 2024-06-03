@@ -23,13 +23,13 @@ body ::-moz-selection {
 @font-face {
  font-family: "LINE_Rg";
  font-weight: 400;
- src: url(/fonts/LINESeed_JP/LINESeedJP_OTF_Rg.woff) format("woff");
+ src: url(fonts/LINESeed_JP/LINESeedJP_OTF_Rg.woff) format("woff");
 }
 
 @font-face {
 	font-family: "Mario_U";
 	font-weight: 400;
-	src: url(/fonts/NewSuperMarioFontU.ttf) format("truetype");
+	src: url(fonts/NewSuperMarioFontU.ttf) format("truetype");
    }
 
 /*title部分*/
@@ -55,7 +55,9 @@ body ::-moz-selection {
 .title a {
 	
 	font-weight: bold; 
-	font-size: x-large;
+	/*少し小さく変更*/
+	/*font-size: x-large;*/
+	font-size: large;
 	line-height: 150%;
 	color: white;
 	/*font-family: "sans-serif";*/
@@ -100,6 +102,8 @@ a:hover {
 /*.top-titleの部分*/
 .top-title  h1 {
 	font-family: "Mario_U","LINE_Rg";
+	/*とりま追加*/
+	font-size: xx-large;
 }
 
 
