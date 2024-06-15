@@ -106,6 +106,12 @@ a:hover {
 	font-size: xx-large;
 }
 
+/*.top-titleの部分*/
+.top-title  video {
+	border-radius: 20px;
+	box-shadow: rgba(0, 0, 0, 0.7) 3px 3px 10px;
+}
+
 
 /*Made by部分*/
 .madeby { 
@@ -164,6 +170,7 @@ a:hover {
 	text-align    : center;      /* 文字位置   */
 	cursor        : pointer;     /* カーソル   */
 	z-index       : 999;         /* 重ね順位   */
+	backdrop-filter: blur(200px); /*ブラー効果（後付け）*/
   }
   
   .topIcon:hover {
