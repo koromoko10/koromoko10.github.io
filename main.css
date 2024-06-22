@@ -84,6 +84,17 @@ a {
     font-weight: bold;
 }
 
+/*title内画像*/
+.title img {
+	transition: transform .5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+/*title内画像触れたゾ*/
+.title img:hover {
+	transform: scale(1.5);
+}
+
+
 /*通常カーソルが来たゾ*/
 a:hover {
     text-decoration: none;
