@@ -170,7 +170,7 @@ a:hover {
 	bottom        : 20px;        /* 下から位置 */
 	right         : 19px;        /* 右から位置 */
 	padding       : 21px 21px;   /* 余白       */
-	background    : rgba(0, 51, 0, 0.5);     /* 背景色     */
+	background    : rgba(0, 51, 0, 0.3);     /* 背景色     */
 	color         : #ffffff;     /* 文字色     */
 	/* opacity       : 0.5;          透明度     */
 	border-radius : 33%;        /* 角丸       */
@@ -181,11 +181,11 @@ a:hover {
 	text-align    : center;      /* 文字位置   */
 	cursor        : pointer;     /* カーソル   */
 	z-index       : 999;         /* 重ね順位   */
-	backdrop-filter: blur(5px); /*ブラー効果（修正済み）*/
-	box-shadow: rgba(0, 51, 0, 0.5) 0px 1px 10px 0px; /*ちょっと影*/
+	backdrop-filter: blur(4px); /*ブラー効果（修正済み）*/
+	box-shadow: rgba(0, 51, 0, 0.3) 0px 1px 10px 0px; /*ちょっと影*/
   }
   
   .topIcon:hover {
-	background    : rgba(0, 51, 0, 0.7);     /* カーソル時背景色 */
+	background    : rgba(0, 51, 0, 0.5);     /* カーソル時背景色 */
 	/* opacity       : 0.9;    カーソル時透明度 */
   }
