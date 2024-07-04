@@ -110,6 +110,34 @@ a:hover {
 	text-align: center;
 }
 
+/*content-img*/
+.content-img {
+	position: relative;/*親要素にrelative*/
+	border-radius: 20px;
+	box-shadow: rgb(194 231 255 / 50%) 1px 3px 12px 7px;
+	cursor: pointer;
+}
+
+.content-img p{
+	position: absolute; /*子要素にabsolute*/
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    color: #fff;
+    font-size: 1.8rem;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: rgb(211 215 218 / 50%);
+	border: 1px solid rgb(179 181 182 / 80%);
+    border-radius: 12px;
+    box-shadow: rgb(148 148 148 / 50%) 0px 0px 10px 3px;
+    backdrop-filter: blur(5px);
+	-webkit-backdrop-filter: blur(5px);
+  }
+
+
 /*.top-titleの部分*/
 .top-title  h1 {
 	font-family: "Mario_U","LINE_Rg";
@@ -182,6 +210,7 @@ a:hover {
 	cursor        : pointer;     /* カーソル   */
 	z-index       : 999;         /* 重ね順位   */
 	backdrop-filter: blur(4px); /*ブラー効果（修正済み）*/
+	-webkit-backdrop-filter: blur(4px); /*safariなど対応*/
 	box-shadow: rgba(0, 51, 0, 0.3) 0px 1px 10px 0px; /*ちょっと影*/
   }
   

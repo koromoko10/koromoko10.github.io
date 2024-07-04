@@ -22,25 +22,18 @@
         }
     ],
     "shortcuts": [
-        {
-          "name": "Super Mario Bros. Wonder Music #6",
-          "short_name": "SMBW Music #6",
-          "description": "Super Mario Bros. Wonder Music #6をダウンロードします",
-          "url": "https://koromoko10.github.io/Scratch",
-          "icons": [{ "src": "https://koromoko10.github.io/img/PWA/192x192_logo.png", "sizes": "192x192" }]
-        },
-        {
-          "name": "やばそうな通知を送信するプログラム",
-          "short_name": "やばそうな通知",
-          "description": "やばそうな通知を送信するプログラムです",
-          "url": "https://koromoko10.github.io/notification",
-          "icons": [{ "src": "https://koromoko10.github.io/img/PWA/192x192_logo.png", "sizes": "192x192" }]
-        },
 	{
           "name": "tv asahi 動くロゴ再現",
           "short_name": "tv asahi",
           "description": "わかる人には分かります",
           "url": "https://koromoko10.github.io/tv-asahi",
+          "icons": [{ "src": "https://koromoko10.github.io/img/PWA/192x192_logo.png", "sizes": "192x192" }]
+        },
+        {
+          "name": "Others",
+          "short_name": "Others",
+          "description": "Pixel ACG Studioと直接関係のないページです",
+          "url": "https://koromoko10.github.io/others",
           "icons": [{ "src": "https://koromoko10.github.io/img/PWA/192x192_logo.png", "sizes": "192x192" }]
         },
         {
