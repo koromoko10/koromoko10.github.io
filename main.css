@@ -115,7 +115,7 @@ a:hover {
 	font-weight: bold; 
 	font-size: x-large;
 	/*font-family: "sans-serif";*/
-	color: Black;
+	color: light-dark(Black,#bbbbbb);
 	text-align: center;
 }
 
