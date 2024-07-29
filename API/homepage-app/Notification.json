@@ -1,9 +1,10 @@
 {
     "list-1":"こんにちは！koromoko10です！",
-    "list-2":"V1.1.0の既知のバグ内容が修正されました！",
-    "list-3":"V1.1.1のパッチを適用することで",
-    "list-4":"問題を修正することができます。",
-    "list-5":"ダウンロードは下記のリンクから!",
-    "list-6":"https://github.com/koromoko10/koromoko10-homepage-app/tree/main/V1.1.1%20%5Bpatch%5D",
-    "list-7":"更新日：2024/04/24 23:46"
+    "list-2":"V1.1.2アップデートが公開されました！",
+    "list-3":"今回は動作が安定しているため、",
+    "list-4":"安定版としてリリースします！",
+    "list-5":"なんとARM版のWindowsやLinuxにも対応しました！",
+    "list-6":"ダウンロードは下記のリンクから",
+    "list-7":"https://github.com/koromoko10/koromoko10-homepage-app/releases",
+    "list-8":"更新日：2024/07/30 01:49"
 }

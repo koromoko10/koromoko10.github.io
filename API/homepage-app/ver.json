@@ -2,7 +2,7 @@
     "name":"koromoko10ホームページアプリ",
     "author":"koromoko10",
     "author-site":"https://lit.link/koromoko10/",
-    "latest-ver":"1.1.1",
-    "description":"このバージョンはアップデート機能のバグ修正、通知量の調整などがされています",
-    "download":"https://github.com/koromoko10/koromoko10-homepage-app/"
+    "latest-ver":"1.1.2",
+    "description":"このバージョンは安定版としてリリースされています。各バグ修正と起動時間の短縮。",
+    "download":"https://github.com/koromoko10/koromoko10-homepage-app/releases"
 }
