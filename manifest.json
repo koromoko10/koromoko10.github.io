@@ -23,10 +23,10 @@
     ],
     "shortcuts": [
 	{
-          "name": "tv asahi 動くロゴ再現",
-          "short_name": "tv asahi",
-          "description": "わかる人には分かります",
-          "url": "https://koromoko10.github.io/tv-asahi",
+          "name": "プロジェクト一覧",
+          "short_name": "プロジェクト",
+          "description": "Pixel ACG Studioが開発しているプロジェクト一覧です",
+          "url": "https://koromoko10.github.io/project",
           "icons": [{ "src": "https://koromoko10.github.io/img/PWA/192x192_logo.png", "sizes": "192x192" }]
         },
         {
