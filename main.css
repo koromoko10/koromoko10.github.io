@@ -11,7 +11,7 @@ body {
 	/*color: #575e7;*/
 
 	/*LINE Seed JPフォント*/
-	font-family: "LINE_Rg","メイリオ",sans-serif;
+	font-family: "LINE_Rg","Roboto","Noto Sans JP","SF Pro","Helvetica","Arial","メイリオ",sans-serif;
 
 	/*ダークモード対応系*/
 	background-color: light-dark(#ffffff,#1f1f1f);
