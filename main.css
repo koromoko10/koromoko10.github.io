@@ -3,6 +3,43 @@
     color-scheme: light dark;
 }
 
+/*スクロールバーのカスタマイズ関係*/
+::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+
+::-webkit-scrollbar-track {
+	background-color: light-dark(#c0c0c0,#535353);
+	box-shadow: inset light-dark(#7b7b7b,#020202) 0 0 5px 1px;
+	border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #006600;
+	border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: #339900;
+}
+
+/*Firefox系のスクロールバーカスタマイズ*/
+/*おいFirefox、このぐらい統一してくれよ*/
+* {
+	scrollbar-color: #006600 #c0c0c0;
+	scrollbar-width: thin;
+}
+
+
+
+
+/* ボタンは画像がないので分かりにくくなりそう
+::-webkit-scrollbar-button {
+	background-color: yellow;
+}
+*/
+
 /*body全体のスタイル*/
 body {
 
