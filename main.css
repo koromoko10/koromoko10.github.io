@@ -24,14 +24,6 @@
 	background-color: #339900;
 }
 
-/*Firefox系のスクロールバーカスタマイズ*/
-/*おいFirefox、このぐらい統一してくれよ*/
-* {
-	scrollbar-color: #006600 #c0c0c0;
-	scrollbar-width: thin;
-}
-
-
 
 
 /* ボタンは画像がないので分かりにくくなりそう
