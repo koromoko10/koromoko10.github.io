@@ -70,8 +70,8 @@ body ::-moz-selection {
 	src: url(fonts/NewSuperMarioFontU.ttf) format("truetype");
    }
 
-/*title部分*/
-.title {
+/*ヘッダー部分*/
+.header {
 
 	background-color: black;
 	overflow: hidden;
@@ -79,26 +79,20 @@ body ::-moz-selection {
 	box-shadow: light-dark(rgba(0,0,0,0.7),#bbbbbb) 3px 3px 10px;
 }
 
-/*titleのh2タグじゃ*/
-.title h2 {
+.header h2 {
 	
 	color: white;
-	/*font-family: "sans-serif";*/
 	display: block;
 	float: left;
 	text-align: center;
 }
 
-/*titleのaタグじゃ*/
-.title a {
+.header a {
 	
 	font-weight: bold; 
-	/*少し小さく変更*/
-	/*font-size: x-large;*/
 	font-size: large;
 	line-height: 150%;
 	color: white;
-	/*font-family: "sans-serif";*/
 	display: block;
 	cursor: pointer;
 	float: left;
@@ -107,8 +101,7 @@ body ::-moz-selection {
 	text-decoration: none;
 }
 
-/*カーソルが来たゾ*/
-.title a:hover {
+.header a:hover {
 
 	background-color: gold;
 	color: black;
@@ -117,18 +110,15 @@ body ::-moz-selection {
 /*通常aタグ*/
 a {
     text-decoration: none;
-	/*font-family: "sans-serif";*/
     color: #339900;
     font-weight: bold;
 }
 
-/*title内画像*/
-.title img {
+.header img {
 	transition: transform .5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
 
-/*title内画像触れたゾ*/
-.title img:hover {
+.header img:hover {
 	transform: scale(1.5);
 }
 
@@ -148,7 +138,6 @@ a:hover {
 .content h2 {
 	font-weight: bold; 
 	font-size: x-large;
-	/*font-family: "sans-serif";*/
 	color: light-dark(Black,#bbbbbb);
 	text-align: center;
 }
@@ -198,7 +187,6 @@ a:hover {
 /*Made by部分*/
 .madeby { 
 	font-size: x-small;
-	/*font-family: serif;*/
 	color: gray;
 	text-align: center;
 	float: center;
