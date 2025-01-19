@@ -133,6 +133,11 @@ a {
 }
 
 
+iframe {
+	border: none;
+}
+
+
 /*通常カーソルが来たゾ*/
 a:hover {
     text-decoration: none;
