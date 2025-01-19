@@ -1,0 +1,7 @@
+# robots.txt file for koromoko10.com
+# We rarely restrict them. Yay!
+user-agent: *
+allow: /
+Disallow: /Scratch/
+Disallow: /Chromium-errors/
+Sitemap: https://koromoko10.com/sitemap.xml
