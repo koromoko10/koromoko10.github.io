@@ -1,7 +1,12 @@
 # robots.txt file for koromoko10.com
 # We rarely restrict them. Yay!
-user-agent: *
+
+User-agent: Baiduspider
+Disallow: /
+
+User-agent: *
 allow: /
 Disallow: /Scratch/
 Disallow: /Chromium-errors/
+
 Sitemap: https://koromoko10.com/sitemap.xml
