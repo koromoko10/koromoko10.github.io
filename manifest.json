@@ -1,58 +1,56 @@
 {
-    "name": "Pixel ACG Studio",
-    "short_name": "Pixel ACG",
-    "id": "/?source=pwa",
-    "start_url": "/?source=pwa",
-    "scope": "/",
-    "display": "standalone",
-    "orientation": "any",
-    "background_color": "#000000",
-    "theme_color": "#000000",
-    "description": "インディーゲームやツールを主に開発しています。",
-    "icons": [
-        {
-            "src": "https://koromoko10.com/img/PWA/192x192_logo.png",
-            "sizes": "192x192",
-            "type": "image/png"
-        },
-        {
-            "src": "https://koromoko10.com/img/PWA/512x512_logo.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
+  "name": "Pixel ACG Studio",
+  "short_name": "Pixel ACG",
+  "id": "/?source=pwa",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "インディーゲームやツールを主に開発しています。",
+  "icons": [
+    {
+      "src": "https://koromoko10.com/img/PWA/192x192_logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://koromoko10.com/img/PWA/512x512_logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "0840 Chat",
+      "short_name": "0840",
+      "description": "koromoko10が開発した誹謗中傷のない優しいSNSです！",
+      "url": "https://koromoko10.com/0840",
+      "icons": [{ "src": "https://koromoko10.com/img/PWA/192x192_logo.png", "sizes": "192x192" }]
+    },
+	  {
+      "name": "プロジェクト一覧",
+      "short_name": "プロジェクト",
+      "description": "Pixel ACG Studioが開発しているプロジェクト一覧です",
+      "url": "https://koromoko10.com/project",
+      "icons": [{ "src": "https://koromoko10.com/img/PWA/192x192_logo.png", "sizes": "192x192" }]
+    },
+    {
+      "name": "Others",
+      "short_name": "Others",
+      "description": "Pixel ACG Studioと直接関係のないページです",
+      "url": "https://koromoko10.com/others",
+      "icons": [{ "src": "https://koromoko10.com/img/PWA/192x192_logo.png", "sizes": "192x192" }]
+    }
     ],
-    "shortcuts": [
-	{
-          "name": "プロジェクト一覧",
-          "short_name": "プロジェクト",
-          "description": "Pixel ACG Studioが開発しているプロジェクト一覧です",
-          "url": "https://koromoko10.com/project",
-          "icons": [{ "src": "https://koromoko10.com/img/PWA/192x192_logo.png", "sizes": "192x192" }]
-        },
-        {
-          "name": "Others",
-          "short_name": "Others",
-          "description": "Pixel ACG Studioと直接関係のないページです",
-          "url": "https://koromoko10.com/others",
-          "icons": [{ "src": "https://koromoko10.com/img/PWA/192x192_logo.png", "sizes": "192x192" }]
-        },
-        {
-          "name": "404 Page Not Found",
-          "short_name": "404 Page",
-          "description": "404ページ見たい人なんているのかな...",
-          "url": "https://koromoko10.com/404.html",
-          "icons": [{ "src": "https://koromoko10.com/img/PWA/192x192_logo.png", "sizes": "192x192" }]
-        }
-      ],
-      "screenshots" : [
-        {
-          "src": "https://koromoko10.com/img/koromoko10_download_store_logo_high.png",
-          "sizes": "977x969",
-          "type": "image/png",
-          "platform": "wide",
-          "label": "Store logo"
-        }
-      ]
-      
-  }
-  
+    "screenshots" : [
+      {
+        "src": "https://koromoko10.com/img/koromoko10_download_store_logo_high.png",
+        "sizes": "977x969",
+        "type": "image/png",
+        "platform": "wide",
+        "label": "ACG logo"
+      }
+    ]
+}

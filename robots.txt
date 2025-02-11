@@ -7,6 +7,6 @@ Disallow: /
 User-agent: *
 allow: /
 Disallow: /Scratch/
-Disallow: /Chromium-errors/
+Disallow: /API/
 
 Sitemap: https://koromoko10.com/sitemap.xml
