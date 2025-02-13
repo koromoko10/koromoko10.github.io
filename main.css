@@ -32,6 +32,12 @@
 }
 */
 
+/*画面遷移時のフェードアニメーション*/
+@view-transition {
+	  navigation: auto;
+	}
+	
+
 /*body全体のスタイル*/
 body {
 
