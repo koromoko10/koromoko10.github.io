@@ -2,7 +2,7 @@
     "name":"アイコン保存",
     "author":"koromoko10",
     "author-site":"https://lit.link/koromoko10/",
-    "latest-ver":"1.1.0",
-    "description":"Pixel ACG Studioとの連携機能の強化に伴い、アップデート確認のAPI変更をしました。またアップデート機能の設定追加、一部のバグ修正と動作の最適化を行いました。",
+    "latest-ver":"1.1.1",
+    "description":"動作の軽量化、APIのドメイン変更に対応、一部のバグ修正と最適化を行いました。",
     "download":"https://koromoko10-homepage.jimdofree.com/koromoko10-download-store/%E3%82%A2%E3%82%A4%E3%82%B3%E3%83%B3%E6%A4%9C%E7%B4%A2%E3%82%A2%E3%83%97%E3%83%AA%E3%83%80%E3%82%A6%E3%83%B3%E3%83%AD%E3%83%BC%E3%83%89/"
 }
