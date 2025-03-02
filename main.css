@@ -204,6 +204,13 @@ a:hover {
 	-webkit-backdrop-filter: blur(5px);
   }
 
+.content button {
+	width: 50%;
+	border-radius: 20px;
+	border: none;
+	box-shadow: rgb(194 231 255 / 50%) 0px 3px 8px 4px;
+	cursor: pointer;
+}
 
 /*.top-titleの部分*/
 .top-title  h1 {
