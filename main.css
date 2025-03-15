@@ -151,10 +151,12 @@ a {
 
 .header img {
 	transition: transform .5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+	filter: blur(0px);
 }
 
 .header img:hover {
 	transform: scale(1.5);
+	filter: blur(2px);
 }
 
 
@@ -207,7 +209,9 @@ a:hover {
 .content button {
 	width: 50%;
 	border-radius: 20px;
-	border: none;
+	border: solid;
+    border-width: 2px;
+    border-color: gray;
 	box-shadow: rgb(194 231 255 / 50%) 0px 3px 8px 4px;
 	cursor: pointer;
 }
@@ -290,4 +294,23 @@ a:hover {
   .topIcon:hover {
 	background    : light-dark(rgba(0, 51, 0, 0.5),rgba(51, 153, 0, 0.5));     /* カーソル時背景色 */
 	/* opacity       : 0.9;    カーソル時透明度 */
+  }
+
+
+  .member-zone {
+	display: grid;
+    grid-template-columns: 50% 50%;
+  }
+
+  .member {
+	display: flex;
+	height: auto;
+	margin: 10px 10px 10px;
+	padding: 10px 10px;
+	background-color: light-dark(#dcdcdc,#333333);
+	border-style: dotted;
+	border-width: 2px;
+	border-color: light-dark(#333333,#dcdcdc);
+	border-radius: 15px;
+	box-shadow: light-dark(#cedfcea6,#4b4b4bb8) 0px 1px 8px 6px;
   }
