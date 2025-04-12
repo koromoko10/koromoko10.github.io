@@ -174,7 +174,7 @@ a:hover {
 /*content内h2タグ*/
 .content h2 {
 	font-weight: bold; 
-	font-size: x-large;
+	font-size: 24px;
 	color: light-dark(Black,#bbbbbb);
 	text-align: center;
 }
@@ -220,7 +220,7 @@ a:hover {
 .top-title  h1 {
 	font-family: "Mario_U","LINE_Rg";
 	/*とりま追加*/
-	font-size: xx-large;
+	font-size: 32px;
 }
 
 /*.top-titleの部分*/
@@ -313,4 +313,17 @@ a:hover {
 	border-color: light-dark(#333333,#dcdcdc);
 	border-radius: 15px;
 	box-shadow: light-dark(#cedfcea6,#4b4b4bb8) 0px 1px 8px 6px;
+  }
+
+
+  h1 {
+	font-size: 32px;
+  }
+
+  h2 {
+	font-size: 24px;
+  }
+
+  h3 {
+	font-size: 18px;
   }
