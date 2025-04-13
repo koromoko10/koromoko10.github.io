@@ -6,7 +6,7 @@
   "scope": "/",
   "display": "standalone",
   "orientation": "any",
-  "background_color": "#000000",
+  "background_color": "#1f1f1f",
   "theme_color": "#000000",
   "description": "インディーゲームやツールを主に開発しています。",
   "icons": [
