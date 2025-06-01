@@ -69,7 +69,6 @@
 
 /*body全体のスタイル*/
 body {
-
 	/*余白を消しゴムマジックで消して殺るのさ！*/
 	/*margin: 0;*/
 	/*color: #575e7;*/
@@ -107,7 +106,6 @@ body ::-moz-selection {
 
 /*ヘッダー部分*/
 .header {
-
 	background-color: black;
 	overflow: hidden;
 	border-radius: 15px;
@@ -115,7 +113,6 @@ body ::-moz-selection {
 }
 
 .header h2 {
-	
 	color: white;
 	display: block;
 	float: left;
@@ -123,7 +120,6 @@ body ::-moz-selection {
 }
 
 .header a {
-	
 	font-weight: bold; 
 	font-size: large;
 	line-height: 150%;
@@ -137,7 +133,6 @@ body ::-moz-selection {
 }
 
 .header a:hover {
-
 	background-color: gold;
 	color: black;
 }
@@ -158,7 +153,6 @@ a {
 	transform: scale(1.5);
 	filter: blur(2px);
 }
-
 
 iframe {
 	border: none;
