@@ -8,6 +8,7 @@
   "orientation": "any",
   "background_color": "#1f1f1f",
   "theme_color": "#000000",
+  "categories": ["game", "utilities", "social","sns","tool","communication"],
   "description": "インディーゲームやツールを主に開発しています。",
   "icons": [
     {
@@ -27,7 +28,7 @@
       "short_name": "0840",
       "description": "koromoko10が開発した誹謗中傷のない優しいSNSです！",
       "url": "https://koromoko10.com/0840",
-      "icons": [{ "src": "https://koromoko10.com/img/PWA/192x192_logo.png", "sizes": "192x192" }]
+      "icons": [{ "src": "https://koromoko10.com/img/PWA/0840_logo.png", "sizes": "370x370" }]
     },
 	  {
       "name": "プロジェクト一覧",
