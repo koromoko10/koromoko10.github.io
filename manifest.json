@@ -35,23 +35,14 @@
       "short_name": "プロジェクト",
       "description": "Pixel ACG Studioが開発しているプロジェクト一覧です",
       "url": "https://koromoko10.com/project",
-      "icons": [{ "src": "https://koromoko10.com/img/PWA/192x192_logo.png", "sizes": "192x192" }]
+      "icons": [{ "src": "https://koromoko10.com/img/PWA/project-list_logo.png", "sizes": "200x200" }]
     },
     {
       "name": "Others",
       "short_name": "Others",
       "description": "Pixel ACG Studioと直接関係のないページです",
       "url": "https://koromoko10.com/others",
-      "icons": [{ "src": "https://koromoko10.com/img/PWA/192x192_logo.png", "sizes": "192x192" }]
+      "icons": [{ "src": "https://koromoko10.com/img/PWA/others-list_logo.png", "sizes": "200x200" }]
     }
-    ],
-    "screenshots" : [
-      {
-        "src": "https://koromoko10.com/img/koromoko10_download_store_logo_high.png",
-        "sizes": "977x969",
-        "type": "image/png",
-        "platform": "wide",
-        "label": "ACG logo"
-      }
     ]
 }
