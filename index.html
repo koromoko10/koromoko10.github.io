@@ -82,21 +82,6 @@ MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM
 
 		<script src="https://koromoko10.com/script.js"></script>
 
-		<!--サービスワーカー関係-->
-		<script>
-			if ('serviceWorker' in navigator) {
-  				window.addEventListener('load', () => {
-    			navigator.serviceWorker.register('/service-worker.js')
-      			.then((reg) => {
-        		console.log('✅ Service Worker registered:', reg);
-      		})
-      		.catch((err) => {
-        		console.log('❌ Service Worker registration failed:', err);
-      		});
-  		});
-		}
-		</script>
-
 		<link rel="icon" href="favicon.ico">
 
 		<link rel="manifest" href="https://koromoko10.com/manifest.json">
