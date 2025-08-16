@@ -230,25 +230,6 @@ a:hover {
 	float: center;
 }
 
-/*Googleカスタム検索CSSが多すぎるのでいつか減らす(無駄な記述も多いので)*/
-
-/*https://hidari-ni-usetu.com/google-custom-search-memo/の方法*/
-
-.gcse-search {
-	box-sizing:content-box;
-}
-
-/*https://saruwakakun.com/sango/comments?id=2601/の方法*/
-.gsc-search-box-tools .gsc-search-box .gsc-input {
-    font-size: 15px;
-}
-
-/*https://debuyoko.com/581/の方法*/
-#gsc-iw-id1 input[type="text"] {
-    border: none;
-    box-shadow: none;
-    line-height: normal;
-}
 
 /*Googleカスタム検索の親要素*/
 .search-parent  {
