@@ -1,9 +1,6 @@
 # koromoko10.github.ioとは
 
-<img width="300" src="https://koromoko10.github.io/img/koromoko10_download_store_logo_high.png" title="logo"> <br> 
+<img width="750" height="250" alt="Pixel ACG Studio header 改" src="https://github.com/user-attachments/assets/e30cb492-55d6-48cf-b145-70ef70192101" title="header">
 
-このサイトはPixel ACG Studioの公式ホームページです。<br>
-[https://koromoko10.com](https://koromoko10.com) は [Githubリポジトリ](https://github.com/koromoko10/koromoko10.github.io)に公開されています<br><br>
-
-
->このサイトは[koromoko10](https://lit.link/koromoko10)が作成しています
+このリポジトリは **Pixel ACG Studioの公式ホームページ** です。<br>
+[https://koromoko10.com](https://koromoko10.com)に公開されています。
