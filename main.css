@@ -67,13 +67,8 @@
 }
   
 
-/*body全体のスタイル*/
 body {
-	/*余白を消しゴムマジックで消して殺るのさ！*/
-	/*margin: 0;*/
-	/*color: #575e7;*/
 
-	/*LINE Seed JPフォント*/
 	font-family: "LINE_Rg","Roboto","Noto Sans JP","SF Pro","Helvetica","Arial","メイリオ",sans-serif;
 
 	/*ダークモード対応系*/
@@ -81,17 +76,16 @@ body {
 	color: light-dark(#000000,#bbbbbb);
 }
 
-/*文字選択色*/
+
 body ::selection {
-	background-color : rgba(153, 153, 153, 0.60);      /* 選択時の背景色 */
+	background-color : rgba(153, 153, 153, 0.60);
 }
 /*FireFox対応*/
 body ::-moz-selection {
-	background-color : rgba(153, 153, 153, 0.60);      /* 選択時の背景色 */
+	background-color : rgba(153, 153, 153, 0.60);
 }
 
 
-/* フォント設定 */
 @font-face {
  font-family: "LINE_Rg";
  font-weight: 400;
@@ -104,7 +98,7 @@ body ::-moz-selection {
 	src: url(fonts/NewSuperMarioFontU.ttf) format("truetype");
    }
 
-/*ヘッダー部分*/
+
 .header {
 	background-color: black;
 	overflow: hidden;
@@ -137,7 +131,7 @@ body ::-moz-selection {
 	color: black;
 }
 
-/*通常aタグ*/
+
 a {
     text-decoration: none;
     color: #339900;
@@ -146,12 +140,10 @@ a {
 
 .header img {
 	transition: transform .5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-	filter: blur(0px);
 }
 
 .header img:hover {
 	transform: scale(1.5);
-	filter: blur(2px);
 }
 
 iframe {
@@ -159,13 +151,11 @@ iframe {
 }
 
 
-/*通常カーソルが来たゾ*/
 a:hover {
     text-decoration: none;
     color: #006600;
 }
 
-/*content内h2タグ*/
 .content h2 {
 	font-weight: bold; 
 	font-size: 24px;
@@ -173,7 +163,7 @@ a:hover {
 	text-align: center;
 }
 
-/*content-img*/
+
 .content-img {
 	position: relative;/*親要素にrelative*/
 	border-radius: 20px;
@@ -205,7 +195,7 @@ a:hover {
 	border-radius: 15px;
 	border: solid;
     border-width: 2px;
-    border-color: light-dark(#7a947a,#f5fff5);
+    border-color: light-dark(#7a947a,#bbbbbb);
 	box-shadow: light-dark(#cedfcea6,#4b4b4bb8) 0px 1px 8px 6px;
 	cursor: pointer;
 	background-color: #90b890e3;
@@ -220,21 +210,19 @@ a:hover {
     color: #555555;
 }
 
-/*.top-titleの部分*/
+
 .top-title  h1 {
 	font-family: "Mario_U","LINE_Rg";
-	/*とりま追加*/
 	font-size: 32px;
 }
 
-/*.top-titleの部分*/
+
 .top-title  video {
 	border-radius: 20px;
 	box-shadow: light-dark(rgba(0, 0, 0, 0.7),#bbbbbb) 3px 3px 10px;
 }
 
 
-/*Made by部分*/
 .madeby { 
 	font-size: x-small;
 	color: gray;
@@ -242,7 +230,7 @@ a:hover {
 	float: center;
 }
 
-/*Googleカスタム検索なぜかできない、、、*/
+/*Googleカスタム検索CSSが多すぎるのでいつか減らす(無駄な記述も多いので)*/
 
 /*https://hidari-ni-usetu.com/google-custom-search-memo/の方法*/
 
