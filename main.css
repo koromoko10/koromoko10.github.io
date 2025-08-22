@@ -100,10 +100,11 @@ body ::-moz-selection {
 
 
 .header {
-	background-color: black;
+	/*background-color: black;*/
+	background: linear-gradient(135deg, #023703, #061a01, #000000);
 	overflow: hidden;
-	border-radius: 15px;
-	box-shadow: light-dark(rgba(0,0,0,0.7),#bbbbbb) 3px 3px 10px;
+	border-radius: 100px;
+	box-shadow: light-dark(#3434349e,#bcbcbcc7) 0px 4px 20px 1px;
 }
 
 .header h2 {
@@ -124,6 +125,8 @@ body ::-moz-selection {
 	padding: 1em 1.5em;
 	text-align: center;
 	text-decoration: none;
+	/*画像サイズとの関係でボタン下部に謎の余白があったので*/
+	height: 32px;
 }
 
 .header a:hover {
@@ -167,7 +170,7 @@ a:hover {
 .content-img {
 	position: relative;/*親要素にrelative*/
 	border-radius: 20px;
-	box-shadow: light-dark(#cedfcea6,#4b4b4bb8) 0px 1px 8px 6px;
+	box-shadow: light-dark(#60a66087,#efefefb8) 0px 1px 10px 2px;
 	cursor: pointer;
 }
 
@@ -181,11 +184,11 @@ a:hover {
     	color: #fff;
     	font-size: 1.8rem;
     	margin: 0 !important;
-    	padding: 5px !important;
-    	background: rgb(211 215 218 / 50%);
-		border: 1px solid rgb(179 181 182 / 80%);
-    	border-radius: 12px;
-    	box-shadow: rgb(148 148 148 / 50%) 0px 0px 10px 3px;
+    	padding: 9px !important;
+    	background: #73c05787;
+		border: 2px solid #fafafa9e;
+    	border-radius: 20px;
+    	box-shadow: #9c9c9c80 0px 0px 10px 3px;
     	backdrop-filter: blur(5px);
 		-webkit-backdrop-filter: blur(5px);
 }
