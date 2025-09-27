@@ -41,10 +41,24 @@
 					<i>arrow_back</i>
     			</button>
 				<h6 class="max">壁紙・アイコン等ダウンロード</h6>
+				<a href="index_m.html">
+					<button class="circle transparent">
+    					<i>devices</i>
+						<div class="tooltip bottom">スマートフォン版に切り替える</div>
+    				</button>
+				</a>
+				<button class="circle transparent" data-ui="#dialog-info">
+    				<i>Info</i>
+					<div class="tooltip bottom">更新情報</div>
+    			</button>
 			</nav>
 		</header>
 
 		<nav class="left">
+    		<button class="extend square round" data-ui="#dialog-menu">
+    			<i>Menu</i>
+    			<span>メニュー</span>
+    		</button>
 			<a href="https://koromoko10.com/">
     			<i>home</i>
     			<div>TOP</div>
@@ -52,27 +66,109 @@
 			<a href="#wall">
     			<i>Wallpaper</i>
     			<div>壁紙</div>
-				<div class="badge">New</div>
+				<!--<div class="badge">New</div>-->
 			</a>
 			<a href="#icon">
     			<i>Image</i>
     			<div>アイコン</div>
-				<div class="badge">New</div>
+				<!--<div class="badge">New</div>-->
 			</a>
 			<a href="#theme">
 				<i>dashboard_customize</i>
 				<div>カスタムテーマ</div>
+				<div class="badge border">1</div>
+			</a>
+			<a href="#ymmt">
+				<i>book</i>
+				<div>YMMT</div>
 				<div class="badge">New</div>
 			</a>
 		</nav>
 
-		<dialog id="dialog">
+		<!--ダイアログ部分-->
+		<dialog id="dialog-ninty">
 			<h5>Ninty Launcherとは</h5>
 			<div>Ninty Launcherは<b><a href="https://ninstar.carrd.co/" target="_blank">NinStar</a></b>さんが開発したゲームランチャーソフトです。<br>Ninty LauncherはNintendo SwitchのようなUIが特徴的で、<br>カスタマイズ性に優れています。<br>ランチャーは<b><a href="https://ninstars.itch.io/ninty" target="_blank">こちら</a></b>からダウンロードすることができます。</div>
 			<nav class="right-align no-space">
-				<button class="transparent link" data-ui="#dialog">OK</button>
+				<button class="transparent link" data-ui="#dialog-ninty">OK</button>
 			</nav>
 		</dialog>
+
+		<dialog id="dialog-ymm">
+			<h5>ゆっくりムービーメーカー4とは</h5>
+			<div>ゆっくりムービーメーカー4は<b><a href="https://x.com/manju_summoner" target="_blank">饅頭遣い</a></b>さんが開発した動画編集ソフトです。<br>このソフトではゆっくり実況プレイ動画などを、<br>簡単に作成することができます。<br>ゆっくりムービーメーカー4は<b><a href="https://manjubox.net/ymm4/" target="_blank">こちら</a></b>からダウンロードすることができます。</div>
+			<nav class="right-align no-space">
+				<button class="transparent link" data-ui="#dialog-ymm">OK</button>
+			</nav>
+		</dialog>
+
+		<dialog class="right" id="dialog-info">
+			<h5>このページの更新情報</h5>
+			<div>
+				<h6>2025/09/23</h6>
+				<ul>
+					<li>ゆっくりムービーメーカー4のテンプレートタブを追加！</li>
+					<li>イッテQ風テロップテンプレートを追加！</li>
+					<li>HIKAKINさん風テロップテンプレートを追加！</li>
+					<li>NSMBWiiのカスタムテーマを更新しました！</li>
+					<li>更新情報を確認できるようになりました！</li>
+					<li>サイドバーを拡大することができるようになりました！</li>
+					<li>スマートフォンでの表示に対応しました！</li>
+				</ul>
+				<h6>2025/8/16</h6>
+				壁紙・アイコン等ダウンロードページ開設！
+				<ul>
+					<li>PC用壁紙を4種類追加！</li>
+					<li>アイコンセット（メディアキット）を2種類追加！</li>
+					<li>Ninty Launcher用カスタムテーマを3種類追加！</li>
+				</ul>
+			</div>
+			<nav class="right-align">
+				<button data-ui="#dialog-info">OK</button>
+			</nav>
+		</dialog>
+
+		<dialog class="left" id="dialog-menu">
+			<header>
+    			<nav>
+    				<h6 class="max">メニュー</h6>
+    				<button class="transparent circle large" data-ui="#dialog-menu">
+    					<i>close</i>
+    				</button>
+    			</nav>
+			</header>
+			<nav class="left max">
+				<a class="ripple" data-ui="#dialog-menu" href="https://koromoko10.com">
+    				<i>home</i>
+    				<div>Pixel ACG Studio トップへ</div>
+				</a>
+				<a class="ripple" data-ui="#dialog-menu" href="#wall">
+    				<i>Wallpaper</i>
+    				<div>PC用壁紙</div>
+				</a>
+				<a class="ripple" data-ui="#dialog-menu" href="#icon">
+    				<i>Image</i>
+    				<div>アイコン・メディアキット</div>
+				</a>
+				<a class="ripple" data-ui="#dialog-menu" href="#theme">
+    				<i>dashboard_customize</i>
+    				<div>Ninty Launcher用カスタムテーマ</div>
+					<b>更新1件</b>
+				</a>
+				<a class="ripple" data-ui="#dialog-menu" href="#ymmt">
+    				<i>book</i>
+    				<div>ゆっくりムービーメーカー4テンプレート</div>
+					<b>新規2件</b>
+				</a>
+				<hr>
+				<div class="space"></div>
+				<a class="ripple" data-ui="#dialog-menu" href="index_m.html">
+    				<i>devices</i>
+    				<div>スマートフォン版に切り替える</div>
+				</a>
+			</nav>
+		</dialog>
+		<!--ダイアログ部分ここまで-->
 
 		<main class="responsive max page right active">
 			<h4>Pixel ACG Studio公式ダウンロードページです！</h4>
@@ -183,7 +279,7 @@
 
 			<h5 id="theme">
 				Ninty Launcher カスタムテーマ
-				<button class="transparent circle right-round top-round" data-ui="#dialog">
+				<button class="transparent circle right-round top-round" data-ui="#dialog-ninty">
 					<i>Help</i>
 					<div class="tooltip">Ninty Launcherとは</div>
 				</button>
@@ -224,10 +320,54 @@
 					<article class="no-padding">
 						<img class="responsive small" src="assets/SMBWii_forNinty.png">
 						<div class="padding">
-    						<h5>Super Mario Bros. Wii</h5>
-    						<p>マリオWii公式から配布されていた壁紙を元に作成しました！<br>カーソル等の色は少し見にくいかもしれないです...</p>
+    						<h5>Super Mario Bros. Wii (v2)</h5>
+    						<p>任天堂公式から配布されていた壁紙を元に作成しました！<br>文字色を見やすいように改善しました！<br>一応以前のバージョンも入ってます。</p>
     						<nav>
 								<a href="assets/NSMBWii_Theme_forNinty.zip" download>
+    								<button>
+										<span>ダウンロード</span>
+										<div class="badge none border">更新</div>
+									</button>
+								</a>
+    						</nav>
+						</div>
+					</article>
+				</div>
+
+			</div>
+
+			<h5 id="ymmt">
+				ゆっくりムービーメーカー4テンプレート
+				<button class="transparent circle right-round top-round" data-ui="#dialog-ymm">
+					<i>Help</i>
+					<div class="tooltip">ゆっくりムービーメーカー4とは</div>
+				</button>
+			</h5>
+			<div class="grid medium-space">
+
+				<div class="s6">
+					<article class="no-padding">
+						<img class="responsive small" src="assets/ymmt_Q.png">
+						<div class="padding">
+    						<h5>イッテQ風テロップ</h5>
+    						<p>イッテQのようなテロップを作ってみました！<br>6種類の再現テロップを入れてます！<br><b>Noto Serif JP</b>、<b>Noto Sans JP</b>、<b>けいふぉんと</b>、<b>851チカラヨワク</b>のフォントをPCにインストールしている必要があります。</p>
+    						<nav>
+								<a href="assets/YMM4_itteQ.ymmt" download>
+    								<button>ダウンロード</button>
+								</a>
+    						</nav>
+						</div>
+					</article>
+				</div>
+
+				<div class="s6">
+					<article class="no-padding">
+						<img class="responsive small" src="assets/ymmt_HIKA.png">
+						<div class="padding">
+    						<h5>HIKAKINさん風テロップ</h5>
+    						<p>HIKAKINさんのようなテロップを作ってみました！<br>現在は2種類のみです！<br><b>Noto Sans JP</b>のフォントをPCにインストールしている必要があります。</p>
+    						<nav>
+								<a href="assets/YMM4_HIKAKIN.ymmt" download>
     								<button>ダウンロード</button>
 								</a>
     						</nav>
