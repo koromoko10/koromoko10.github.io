@@ -7,9 +7,9 @@
   "display": "standalone",
   "orientation": "any",
   "background_color": "#1f1f1f",
-  "theme_color": "#000000",
-  "categories": ["game", "utilities", "social","sns","tool","communication"],
-  "description": "インディーゲームやツールを主に開発しています。",
+  "theme_color": "#023703",
+  "categories": ["game", "utilities", "social","sns","tool","communication","wallpaper"],
+  "description": "便利なソフトウェアやWebツール、インディーゲームの開発をするグループです。",
   "icons": [
     {
       "src": "https://koromoko10.com/img/PWA/192x192_logo.png",
@@ -22,6 +22,50 @@
       "type": "image/png"
     }
   ],
+  "screenshots": [
+    {
+      "src": "https://koromoko10.com/img/PWA/screenshots1_wide.png",
+      "sizes": "1900x1090",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Pixel ACG Studio公式サイトのトップ画面"
+    },
+    {
+      "src": "https://koromoko10.com/img/PWA/screenshots2_wide.png",
+      "sizes": "1900x1090",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "0840 Chatのトップ画面"
+    },
+    {
+      "src": "https://koromoko10.com/img/PWA/screenshots3_wide.png",
+      "sizes": "1900x1090",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "ダウンロードサイトのトップ画面"
+    },
+    {
+      "src": "https://koromoko10.com/img/PWA/screenshots1_narrow.JPEG",
+      "sizes": "1170x2391",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "Pixel ACG Studio公式サイトのトップ画面"
+    },
+    {
+      "src": "https://koromoko10.com/img/PWA/screenshots2_narrow.JPEG",
+      "sizes": "1170x2391",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "0840 Chatのトップ画面"
+    },
+    {
+      "src": "https://koromoko10.com/img/PWA/screenshots3_narrow.JPEG",
+      "sizes": "1170x2391",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "ダウンロードサイトのトップ画面"
+    }
+  ],
   "shortcuts": [
     {
       "name": "0840 Chat",
@@ -29,6 +73,13 @@
       "description": "koromoko10が開発した誹謗中傷のない優しいSNSです！",
       "url": "https://koromoko10.com/0840",
       "icons": [{ "src": "https://koromoko10.com/img/PWA/0840_logo.png", "sizes": "370x370" }]
+    },
+    {
+      "name": "壁紙・アイコン等ダウンロード",
+      "short_name": "ダウンロード",
+      "description": "Pixel ACG Studio公式のダウンロードサイトです！",
+      "url": "https://koromoko10.com/project/dl",
+      "icons": [{ "src": "https://koromoko10.com/img/PWA/dl_logo.png", "sizes": "200x200" }]
     },
 	  {
       "name": "プロジェクト一覧",
