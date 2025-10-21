@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name=”robots” content=”noindex”>
+        <meta name=”robots” content=”nofollow”>
+        <title>アイコン保存ヘッダー</title>
+        <style>
+            @font-face {
+                font-family: "LINE_Rg";
+                font-weight: 400;
+                src: url(../../fonts/LINESeed_JP/LINESeedJP_OTF_Rg.woff) format("woff");
+            }
+            body,h1,button {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            body {
+                font-family: "LINE_Rg","Noto Sans JP","Helvetica","Arial","メイリオ",sans-serif;
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            body ::selection {
+	            background-color : rgba(153, 153, 153, 0.60);
+            }
+
+            body ::-moz-selection {
+	            background-color : rgba(153, 153, 153, 0.60);
+            }
+
+            .glass {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 10px 20px;
+                width: 100%;
+                height: 60px;
+                background: rgba(255,255,255,0.8);
+                backdrop-filter: blur(4px);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                position: fixed;
+                top: 0;
+                left: 0;
+                z-index: 1000;
+            }
+
+            .back-button {
+                background-color: transparent;
+                border: none;
+		        color: #ffffff;
+                background-color: #007BFF;
+                font-size: 18px;
+                cursor: pointer;
+                margin-right: 15px;
+		        padding: 8px;
+		        border-radius: 50px;
+            }
+
+            .back-button:hover {
+                background-color: #0056b3;
+            }
+
+            .title {
+                font-size: 20px;
+                font-weight: bold;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="glass">
+            <button class="back-button" onclick="history.back();">← 戻る</button>
+            <h1 class="title">
+                アイコン保存ショートカット
+            </h1>
+        </div>
+    </body>
+</html>
