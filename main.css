@@ -246,6 +246,17 @@ a:hover {
 	font-size: 32px;
 }
 
+.title-404 p {
+	font-family: "Mario_U","keifont","LINE_Rg";
+	font-size: 100px;
+	text-align: center;
+	/*グラデーション*/
+	background: linear-gradient(to right, #ff6a00, #ee0979);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 
 .title  video {
 	border-radius: 20px;
