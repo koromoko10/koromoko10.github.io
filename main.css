@@ -96,7 +96,13 @@ body ::-moz-selection {
 	font-family: "Mario_U";
 	font-weight: 400;
 	src: url(fonts/NewSuperMarioFontU.ttf) format("truetype");
-   }
+}
+
+@font-face {
+	font-family: "keifont";
+	font-weight: 600;
+	src: url(fonts/keifont.ttf) format("truetype");
+}
 
 
 .header {
@@ -224,13 +230,24 @@ a:hover {
 }
 
 
-.top-title  h1 {
-	font-family: "Mario_U","LINE_Rg";
+.title  h1 {
+	font-family: "Mario_U","keifont","LINE_Rg";
+	font-size: 32px;
+	text-align: center;
+}
+
+.title  img {
+	width: 100%;
+	border-radius: 30px;
+}
+
+.subtitle  h1 {
+	font-family: "Mario_U","keifont","LINE_Rg";
 	font-size: 32px;
 }
 
 
-.top-title  video {
+.title  video {
 	border-radius: 20px;
 	box-shadow: light-dark(rgba(0, 0, 0, 0.7),#bbbbbb) 3px 3px 10px;
 }
