@@ -1,6 +1,6 @@
 {
-  "name": "Pixel ACG Studio",
-  "short_name": "Pixel ACG",
+  "name": "ころもこ倉庫",
+  "short_name": "ころもこ倉庫",
   "id": "/?source=pwa",
   "start_url": "/?source=pwa",
   "scope": "/",
@@ -9,7 +9,7 @@
   "background_color": "#1f1f1f",
   "theme_color": "#023703",
   "categories": ["game", "utilities", "social","sns","tool","communication","wallpaper"],
-  "description": "便利なソフトウェアやWebツール、インディーゲームの開発をするグループです。",
+  "description": "便利なツールからゲームまで、koromoko10が気ままに作った作品を保管するデジタル倉庫です。",
   "icons": [
     {
       "src": "https://koromoko10.com/img/PWA/192x192_logo.png",
@@ -28,7 +28,7 @@
       "sizes": "1900x1090",
       "type": "image/png",
       "form_factor": "wide",
-      "label": "Pixel ACG Studio公式サイトのトップ画面"
+      "label": "トップ画面"
     },
     {
       "src": "https://koromoko10.com/img/PWA/screenshots2_wide.png",
@@ -49,7 +49,7 @@
       "sizes": "1170x2391",
       "type": "image/jpeg",
       "form_factor": "narrow",
-      "label": "Pixel ACG Studio公式サイトのトップ画面"
+      "label": "トップ画面"
     },
     {
       "src": "https://koromoko10.com/img/PWA/screenshots2_narrow.JPEG",
@@ -77,7 +77,7 @@
     {
       "name": "壁紙・アイコン等ダウンロード",
       "short_name": "ダウンロード",
-      "description": "Pixel ACG Studio公式のダウンロードサイトです！",
+      "description": "壁紙やアイコンなどをダウンロードできます！",
       "url": "https://koromoko10.com/project/dl",
       "icons": [{ "src": "https://koromoko10.com/img/PWA/dl_logo.png", "sizes": "200x200" }]
     },
@@ -87,13 +87,6 @@
       "description": "Pixel ACG Studioが開発しているプロジェクト一覧です",
       "url": "https://koromoko10.com/project",
       "icons": [{ "src": "https://koromoko10.com/img/PWA/project-list_logo.png", "sizes": "200x200" }]
-    },
-    {
-      "name": "Others",
-      "short_name": "Others",
-      "description": "Pixel ACG Studioと直接関係のないページです",
-      "url": "https://koromoko10.com/others",
-      "icons": [{ "src": "https://koromoko10.com/img/PWA/others-list_logo.png", "sizes": "200x200" }]
     }
-    ]
+  ]
 }
