@@ -24,6 +24,9 @@
 	background-color: #339900;
 }
 
+::-webkit-scrollbar-thumb:active {
+	background-color: #033603;
+}
 
 
 /* ボタンは画像がないので分かりにくくなりそう
