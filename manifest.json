@@ -74,19 +74,19 @@
       "url": "https://koromoko10.com/0840",
       "icons": [{ "src": "https://koromoko10.com/img/PWA/0840_logo.png", "sizes": "370x370" }]
     },
-    {
-      "name": "壁紙・アイコン等ダウンロード",
-      "short_name": "ダウンロード",
-      "description": "壁紙やアイコンなどをダウンロードできます！",
-      "url": "https://koromoko10.com/project/dl",
-      "icons": [{ "src": "https://koromoko10.com/img/PWA/dl_logo.png", "sizes": "200x200" }]
-    },
 	  {
       "name": "プロジェクト一覧",
       "short_name": "プロジェクト",
       "description": "Pixel ACG Studioが開発しているプロジェクト一覧です",
       "url": "https://koromoko10.com/project",
       "icons": [{ "src": "https://koromoko10.com/img/PWA/project-list_logo.png", "sizes": "200x200" }]
+    },
+    {
+      "name": "壁紙・アイコン等ダウンロード",
+      "short_name": "ダウンロード",
+      "description": "壁紙やアイコンなどをダウンロードできます！",
+      "url": "https://koromoko10.com/dl",
+      "icons": [{ "src": "https://koromoko10.com/img/PWA/dl_logo.png", "sizes": "200x200" }]
     }
   ]
 }
