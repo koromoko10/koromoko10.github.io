@@ -2,7 +2,7 @@
     "name":"アイコン保存",
     "author":"koromoko10",
     "author-site":"https://lit.link/koromoko10/",
-    "latest-ver":"1.1.1",
-    "description":"動作の軽量化、APIのドメイン変更に対応、一部のバグ修正と最適化を行いました。",
-    "download":"https://koromoko10-homepage.jimdofree.com/icon-save-app/"
+    "latest-ver":"1.2.0",
+    "description":"・画像を保存せずにプレビュー表示できるようになりました！・初回起動時にホーム画面に追加できるようになりました！・検索件数を25件から30件に変更しました！・バージョン確認機能が正しく動作するように修正しました！・各種メニューのUIを改善しました！",
+    "download":"https://koromoko10.com/project/icon-dl/"
 }
