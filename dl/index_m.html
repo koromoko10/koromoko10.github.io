@@ -62,7 +62,7 @@
     			<i>Menu</i>
     			<span>メニュー</span>
     		</button>
-			<a href="https://koromoko10.com/">
+			<a href="https://koromoko10.com/dl/index_m.html">
     			<i>home</i>
     			<div>TOP</div>
   			</a>
@@ -108,6 +108,11 @@
 		<dialog class="bottom" id="dialog-info">
 			<h5>このページの更新情報</h5>
 			<div>
+				<h6>2025/12/15</h6>
+				<ul>
+					<li>TOPに戻るボタンの挙動を変更しました！</li>
+					<li>メニューナビゲーションがiPhoneでうまく表示されない問題を修正しました！（多分）</li>
+				</ul>
 				<h6>2025/11/22</h6>
 				<ul>
 					<li>URLを<b><a href="https://koromoko10.com/project/dl">.com/project/dl</a></b>から<b><a href="https://koromoko10.com/dl">.com/dl</a></b>に変更しました！</li>
@@ -140,18 +145,20 @@
 		</dialog>
 
 		<dialog class="max" id="dialog-menu">
-			<header>
+			<header class="fixed">
     			<nav>
-    				<h6 class="max">メニュー</h6>
+					<div class="max padding">
+    					<h6>メニュー</h6>
+					</div>
     				<button class="transparent circle large" data-ui="#dialog-menu">
     					<i>close</i>
     				</button>
     			</nav>
 			</header>
 			<nav class="left max">
-				<a class="ripple" data-ui="#dialog-menu" href="https://koromoko10.com">
+				<a class="ripple" data-ui="#dialog-menu" href="https://koromoko10.com/dl/index_m.html">
     				<i>home</i>
-    				<div>Pixel ACG Studio トップへ</div>
+    				<div>ページ上部に戻る</div>
 				</a>
 				<a class="ripple" data-ui="#dialog-menu" href="#wall">
     				<i>Wallpaper</i>
