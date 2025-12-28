@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:media="http://search.yahoo.com/mrss/">
     <channel>
-        <title>ころもこ倉庫RSS</title>
-        <link>https://koromoko10.com</link>
-        <description>便利なツールからゲームまで、koromoko10が気ままに作った作品を保管するデジタル倉庫のRSSです。</description>
+        <title>ころもこ倉庫 | RSSフィード</title>
+        <link>https://koromoko10.com/</link>
+        <description>ころもこ倉庫は、便利なツールからちょっとしたゲームまで、koromoko10が気ままに作った作品を保管・公開する、ちょっと不思議で自由なデジタル倉庫です。</description>
         <language>ja</language>
-        <lastBuildDate>Sun, 21 Dec 2025 01:51:00 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 29 Dec 2025 01:39:00 +0900</lastBuildDate>
 
         <item>
-            <title>ころもこ倉庫にRSSが導入されました！</title>
-            <link>https://koromoko10.com</link>
-            <guid>https://koromoko10.com</guid>
+            <title>ころもこ倉庫がRSSに対応しました！</title>
+            <link>https://koromoko10.com/?RSS=1</link>
+            <guid>https://koromoko10.com/?RSS=1</guid>
+            <pubDate>Mon, 29 Dec 2025 01:39:00 +0900</pubDate>
+            <description>ころもこ倉庫がRSSに仮対応しました！<br>うまく動作するかどうかはわかりませんが、<b>RSS2.0</b>で配信してます！</description>
+            <media:thumbnail url="https://koromoko10.com/img/RSS_img/RSS1.png">
         </item>
 
     </channel>
