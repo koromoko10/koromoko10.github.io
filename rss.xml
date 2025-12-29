@@ -12,8 +12,9 @@
             <link>https://koromoko10.com/?RSS=1</link>
             <guid>https://koromoko10.com/?RSS=1</guid>
             <pubDate>Mon, 29 Dec 2025 01:39:00 +0900</pubDate>
-            <description>ころもこ倉庫がRSSに仮対応しました！うまく動作するかどうかはわかりませんが、RSS2.0で配信してます！</description>
-            <media:thumbnail url="https://koromoko10.com/img/RSS_img/RSS1.png">
+            <category><![CDATA[サイト更新情報]]></category>
+            <description><![CDATA[ころもこ倉庫がRSSに仮対応しました！<br>うまく動作するかどうかはわかりませんが、<b>RSS2.0</b>で配信してます！]]></description>
+            <media:thumbnail url="https://koromoko10.com/img/RSS_img/RSS1.png" />
         </item>
 
     </channel>
