@@ -5,7 +5,18 @@
         <link>https://koromoko10.com/</link>
         <description>ころもこ倉庫は、便利なツールからちょっとしたゲームまで、koromoko10が気ままに作った作品を保管・公開する、ちょっと不思議で自由なデジタル倉庫です。</description>
         <language>ja</language>
-        <lastBuildDate>Mon, 29 Dec 2025 23:52:00 +0900</lastBuildDate>
+        <lastBuildDate>Thu, 08 Jan 2026 22:54:00 +0900</lastBuildDate>
+
+        <item>
+            <title>リダイレクトに関するお知らせ</title>
+            <link>https://koromoko10.com/?RSS=3</link>
+            <guid>https://koromoko10.com/?RSS=3</guid>
+            <pubDate>Thu, 08 Jan 2026 22:54:00 +0900</pubDate>
+            <category><![CDATA[サイトからのお知らせ]]></category>
+            <description><![CDATA[2026年の春ごろに旧URLから新URLへ自動リダイレクトするページを削除する予定です。<br>古いURLをブックマーク等している方はお手数ですが確認・修正よろしくお願いします。]]></description>
+            <media:thumbnail url="https://koromoko10.com/img/RSS_img/RSS3.png" />
+            <dc:creator>koromoko10</dc:creator>
+        </item>
 
         <item>
             <title>このRSSがうまく動作していなかった問題を修正しました！</title>
