@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LRC/SRT Lyric Previewer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #0f172a;
+            color: #f8fafc;
+        }
+
+        /* Spotify-style active line */
+        .lyric-line {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            filter: blur(1px);
+            opacity: 0.3;
+            transform: scale(0.95);
+            transform-origin: left;
+        }
+
+        .lyric-line.active {
+            filter: blur(0);
+            opacity: 1;
+            transform: scale(1.05);
+            color: #ffffff;
+            font-weight: 800;
+        }
+
+        /* YouTube-style Subtitle Overlay */
+        .video-subtitle {
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+            background: rgba(0, 0, 0, 0.6);
+            padding: 6px 16px;
+            border-radius: 4px;
+        }
+
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+        }
+
+        #video-container video {
+            max-height: 70vh;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col p-4 md:p-8">
+
+    <header class="max-w-6xl mx-auto w-full mb-8">
+        <h1 class="text-3xl font-extrabold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-500">
+            LRC/SRT Previewer
+        </h1>
+        <p class="text-slate-400 text-sm mt-2">音楽ファイルならスクロール歌詞、動画なら字幕として表示します</p>
+    </header>
+
+    <main class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-3 gap-8 flex-grow">
+        
+        <!-- Setup Section -->
+        <section class="lg:col-span-1 space-y-6">
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 shadow-xl">
+                <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                    ファイルの読み込み
+                </h2>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">メディア (MP3 / MP4 など)</label>
+                        <input type="file" id="mediaInput" accept="audio/*,video/*" 
+                            class="w-full text-sm text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-600 file:text-white hover:file:bg-blue-700 cursor-pointer">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-medium text-slate-400 mb-1">歌詞/字幕ファイル (.lrc / .srt)</label>
+                        <input type="file" id="lyricsInput" accept=".lrc,.srt,.txt" 
+                            class="w-full text-sm text-slate-300 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-purple-600 file:text-white hover:file:bg-purple-700 cursor-pointer">
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-slate-800/50 p-6 rounded-2xl border border-slate-700 shadow-xl">
+                <h2 class="text-lg font-semibold mb-2 text-slate-200">使い方</h2>
+                <ul class="text-sm text-slate-400 space-y-2 leading-relaxed">
+                    <li>• メディアファイル（音楽・動画）を選択します。</li>
+                    <li>• 字幕(LRCまたはSRT)ファイルを読み込みます。</li>
+                    <li>• 再生すると自動的に同期が始まります。</li>
+                    <li>• 歌詞リストをクリックするとその時間にジャンプします。</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Preview Section -->
+        <section class="lg:col-span-2 flex flex-col gap-4">
+            
+            <!-- Media Player Container -->
+            <div id="player-wrapper" class="relative bg-black rounded-2xl overflow-hidden shadow-2xl flex items-center justify-center min-h-[200px]">
+                <div id="media-placeholder" class="text-slate-600 flex flex-col items-center py-12">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 mb-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5l7 7-7 7"/></svg>
+                    <span>メディアを読み込んでください</span>
+                </div>
+                
+                <!-- Video Container -->
+                <div id="video-container" class="hidden w-full relative">
+                    <video id="mainVideo" controls class="w-full"></video>
+                    <!-- YouTube-style Overlay -->
+                    <div id="video-overlay" class="absolute bottom-16 left-0 right-0 flex justify-center pointer-events-none p-4">
+                        <div id="current-subtitle" class="video-subtitle text-white text-xl md:text-2xl font-semibold text-center hidden"></div>
+                    </div>
+                </div>
+
+                <!-- Audio Container -->
+                <div id="audio-container" class="hidden w-full p-8 flex flex-col items-center">
+                    <div class="w-32 h-32 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg shadow-lg mb-6 flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="w-16 h-16 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
+                    </div>
+                    <audio id="mainAudio" controls class="w-full"></audio>
+                </div>
+            </div>
+
+            <!-- Lyrics Scroll Section (Apple Music / Spotify style) -->
+            <div id="lyrics-scroll-container" class="hidden bg-slate-900/40 rounded-2xl border border-slate-800 h-[450px] overflow-y-auto custom-scrollbar relative p-8">
+                <div id="lyrics-content" class="space-y-6 pb-48 transition-all duration-500">
+                    <div class="text-slate-500 italic text-center py-20">LRCまたはSRTファイルを読み込んでください</div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script>
+        const mediaInput = document.getElementById('mediaInput');
+        const lyricsInput = document.getElementById('lyricsInput');
+        const mainVideo = document.getElementById('mainVideo');
+        const mainAudio = document.getElementById('mainAudio');
+        const videoContainer = document.getElementById('video-container');
+        const audioContainer = document.getElementById('audio-container');
+        const placeholder = document.getElementById('media-placeholder');
+        const lyricsContent = document.getElementById('lyrics-content');
+        const lyricsScrollContainer = document.getElementById('lyrics-scroll-container');
+        const videoSubtitle = document.getElementById('current-subtitle');
+
+        let activePlayer = null;
+        let lyricsData = [];
+        let lastIndex = -1;
+
+        // --- メディア読み込み処理 ---
+        mediaInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const url = URL.createObjectURL(file);
+            placeholder.classList.add('hidden');
+
+            if (file.type.startsWith('video/')) {
+                videoContainer.classList.remove('hidden');
+                audioContainer.classList.add('hidden');
+                lyricsScrollContainer.classList.add('hidden'); // 動画時はオーバーレイ優先
+                mainVideo.src = url;
+                activePlayer = mainVideo;
+                mainAudio.pause();
+            } else {
+                audioContainer.classList.remove('hidden');
+                videoContainer.classList.add('hidden');
+                lyricsScrollContainer.classList.remove('hidden'); // 音楽時はスクロール表示
+                mainAudio.src = url;
+                activePlayer = mainAudio;
+                mainVideo.pause();
+            }
+
+            setupPlayerEvents();
+        });
+
+        // --- 字幕・歌詞ファイル読み込み処理 ---
+        lyricsInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const content = event.target.result;
+                // SRTの判定基準: --> を含む
+                if (content.includes(' --> ')) {
+                    parseSRT(content);
+                } else {
+                    parseLRC(content);
+                }
+                renderLyrics();
+            };
+            reader.readAsText(file);
+        });
+
+        // --- LRC解析ロジック ---
+        function parseLRC(text) {
+            lyricsData = [];
+            const lines = text.split('\n');
+            const lrcRegex = /\[(\d{2}):(\d{2})[.:](\d{2,3})\](.*)/;
+            
+            lines.forEach(line => {
+                const match = line.match(lrcRegex);
+                if (match) {
+                    const mins = parseInt(match[1]);
+                    const secs = parseInt(match[2]);
+                    const msStr = match[3];
+                    const ms = parseInt(msStr);
+                    // ミリ秒の桁数に応じて調整
+                    const time = mins * 60 + secs + (msStr.length === 2 ? ms / 100 : ms / 1000);
+                    const content = match[4].trim();
+                    if (content) {
+                        lyricsData.push({ time, content });
+                    }
+                }
+            });
+            lyricsData.sort((a, b) => a.time - b.time);
+        }
+
+        // --- SRT解析ロジック ---
+        function parseSRT(text) {
+            lyricsData = [];
+            // ブロックごとの分割（空行を区切りとする）
+            const blocks = text.trim().split(/\n\s*\n/);
+            
+            blocks.forEach(block => {
+                const lines = block.split('\n');
+                if (lines.length >= 3) {
+                    // タイムスタンプ行の抽出: 00:00:20,000 --> 00:00:24,400
+                    const timeMatch = lines[1].match(/(\d{2}):(\d{2}):(\d{2}),(\d{3})/);
+                    if (timeMatch) {
+                        const h = parseInt(timeMatch[1]);
+                        const m = parseInt(timeMatch[2]);
+                        const s = parseInt(timeMatch[3]);
+                        const ms = parseInt(timeMatch[4]);
+                        const time = h * 3600 + m * 60 + s + ms / 1000;
+                        
+                        // 字幕内容（複数行の場合もあるため結合）
+                        const content = lines.slice(2).join(' ').trim();
+                        if (content) {
+                            lyricsData.push({ time, content });
+                        }
+                    }
+                }
+            });
+            lyricsData.sort((a, b) => a.time - b.time);
+        }
+
+        // --- 歌詞リスト描画 ---
+        function renderLyrics() {
+            if (lyricsData.length === 0) {
+                lyricsContent.innerHTML = '<div class="text-slate-500 italic text-center py-20">有効な歌詞・字幕データが見つかりません</div>';
+                return;
+            }
+
+            lyricsContent.innerHTML = lyricsData.map((item, index) => `
+                <div class="lyric-line text-2xl cursor-pointer" data-index="${index}" onclick="seekTo(${item.time})">
+                    ${item.content}
+                </div>
+            `).join('');
+        }
+
+        function seekTo(time) {
+            if (activePlayer) {
+                activePlayer.currentTime = time;
+                activePlayer.play();
+            }
+        }
+
+        // --- 再生同期ロジック ---
+        function setupPlayerEvents() {
+            if (!activePlayer) return;
+
+            activePlayer.ontimeupdate = () => {
+                const currentTime = activePlayer.currentTime;
+                
+                // 現在の時間に該当するインデックスを検索
+                let currentIndex = -1;
+                for (let i = 0; i < lyricsData.length; i++) {
+                    if (currentTime >= lyricsData[i].time) {
+                        currentIndex = i;
+                    } else {
+                        break;
+                    }
+                }
+
+                if (currentIndex !== lastIndex) {
+                    updateActiveLyric(currentIndex);
+                    lastIndex = currentIndex;
+                }
+            };
+        }
+
+        function updateActiveLyric(index) {
+            // ビデオ字幕オーバーレイ
+            if (index === -1) {
+                videoSubtitle.classList.add('hidden');
+            } else if (lyricsData[index]) {
+                videoSubtitle.textContent = lyricsData[index].content;
+                videoSubtitle.classList.remove('hidden');
+            }
+
+            // スクロールリストの強調表示
+            const lines = document.querySelectorAll('.lyric-line');
+            lines.forEach(l => l.classList.remove('active'));
+
+            if (index !== -1 && lines[index]) {
+                const activeLine = lines[index];
+                activeLine.classList.add('active');
+
+                // 自動スクロール（音楽モード時）
+                if (activePlayer === mainAudio) {
+                    const containerHeight = lyricsScrollContainer.offsetHeight;
+                    const lineOffset = activeLine.offsetTop;
+                    const lineHeight = activeLine.offsetHeight;
+                    
+                    lyricsScrollContainer.scrollTo({
+                        top: lineOffset - (containerHeight / 2) + (lineHeight / 2),
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        }
+    </script>
+</body>
+</html>

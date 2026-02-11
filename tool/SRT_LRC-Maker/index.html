@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SRT字幕＆LRC同期歌詞 メーカー</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <meta name="description" content="SRT字幕やLRC同期歌詞ファイルなどを簡単に無料で作成することができるWebツールです。タイミングよくキーボードを押すだけで完成！自動で生成することはできませんが、音ゲー感覚で楽しく作成できるかと思います！アカウント登録なしでブラウザ上で完結します！">
+	<meta name="keywords" content="koromoko10,koromoko10.github.io,koromoko10.com,ころもこ倉庫,SRT,LRC,同期歌詞,字幕,webtool">
+
+	<!--og関係-->
+	<meta property="og:url" content="https://koromoko10.com/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="SRT字幕＆LRC同期歌詞 メーカー">
+	<meta property="og:description" content="3SRT字幕やLRC同期歌詞ファイルなどを簡単に無料で作成することができるWebツールです。タイミングよくキーボードを押すだけで完成！自動で生成することはできませんが、音ゲー感覚で楽しく作成できるかと思います！アカウント登録なしでブラウザ上で完結します！">
+	<meta property="og:site_name" content="ころもこ倉庫">
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:image" content="https://koromoko10.com/img/OGP/OGP_main.png">
+
+	<!--twitter(旧X)のSummary Card関係-->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="ころもこ倉庫">
+	<meta name="twitter:description" content="SRT字幕やLRC同期歌詞ファイルなどを簡単に無料で作成することができるWebツールです。タイミングよくキーボードを押すだけで完成！自動で生成することはできませんが、音ゲー感覚で楽しく作成できるかと思います！アカウント登録なしでブラウザ上で完結します！">
+	<meta name="twitter:image" content="https://koromoko10.com/img/OGP/OGP_main.png">
+
+    <link rel="icon" href="/favicon.ico">
+
+	<link rel="manifest" href="https://koromoko10.com/manifest.json">
+
+
+    <style>
+        .active-line {
+            background-color: #fef3c7;
+            border-left: 4px solid #f59e0b;
+        }
+        .recorded-line {
+            color: #10b981;
+        }
+
+        /* Toggle Switch Styling */
+        .switch-container {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            background-color: #e2e8f0;
+            border-radius: 9999px;
+            padding: 4px;
+            width: 140px;
+            cursor: pointer;
+            user-select: none;
+            transition: background-color 0.3s;
+        }
+
+        .switch-container.lrc-active {
+            background-color: #fce7f3; /* ピンク背景 */
+        }
+
+        .switch-slider {
+            position: absolute;
+            height: calc(100% - 8px);
+            width: calc(50% - 4px);
+            background-color: white;
+            border-radius: 9999px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 1;
+        }
+
+        .lrc-active .switch-slider {
+            transform: translateX(100%);
+        }
+
+        .switch-label {
+            position: relative;
+            z-index: 2;
+            width: 50%;
+            text-align: center;
+            font-size: 12px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .label-srt { color: #4f46e5; }
+        .label-lrc { color: #94a3b8; }
+
+        .lrc-active .label-srt { color: #94a3b8; }
+        .lrc-active .label-lrc { color: #db2777; }
+    </style>
+</head>
+<body class="bg-slate-50 min-h-screen text-slate-800 font-sans">
+
+    <div class="max-w-6xl mx-auto p-4 md:p-8">
+        <header class="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div>
+                <h1 class="text-3xl font-bold text-slate-900">SRT字幕＆LRC同期歌詞 メーカー</h1>
+                <p class="text-slate-500 text-sm">字幕(SRT)や歌詞(LRC)の同期ファイルを簡単作成。アカウント登録なし、無料で作成できます！<br>最初にSRTモードかLRCモードかを選択してください。</p>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <!-- Mode Toggle -->
+                <div class="flex flex-col items-center">
+                    <span id="modeStatus" class="text-[10px] font-bold mb-1 text-slate-400 uppercase tracking-wider">Mode: SRT</span>
+                    <div id="modeSwitch" class="switch-container">
+                        <div class="switch-slider"></div>
+                        <div class="switch-label label-srt">SRT</div>
+                        <div class="switch-label label-lrc">LRC</div>
+                    </div>
+                </div>
+                
+                <button id="downloadBtn" class="bg-slate-900 hover:bg-black text-white px-6 py-2 rounded-lg font-medium transition-colors shadow-sm disabled:opacity-30 disabled:cursor-not-allowed" disabled>
+                    ファイルを書き出す
+                </button>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+            <!-- 左カラム -->
+            <div class="lg:col-span-7 space-y-6">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                    <label class="block text-sm font-semibold mb-2">1. 素材を読み込む</label>
+                    <input type="file" id="mediaInput" accept="video/*,audio/*" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
+                    <p class="text-[10px] text-slate-400 leading-tight">一般的な動画ファイルや音声ファイルを読み込むことができます。</p>
+
+                    <div id="mediaContainer" class="mt-6 aspect-video bg-black rounded-lg overflow-hidden flex items-center justify-center hidden">
+                        <video id="videoPlayer" controls class="w-full h-full"></video>
+                    </div>
+                    <div id="audioContainer" class="mt-6 p-4 bg-slate-100 rounded-lg hidden text-center border-2 border-dashed border-slate-200">
+                        <audio id="audioPlayer" controls class="w-full"></audio>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white p-6 rounded-xl shadow-lg border border-slate-700">
+                    <h3 class="text-lg font-bold mb-4 flex items-center gap-2">
+                        <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                        操作ガイド
+                    </h3>
+                    <div id="guideSrt" class="grid grid-cols-2 gap-4 text-sm">
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <p class="font-bold text-indigo-400 mb-1">【連続モード】</p>
+                            <p><kbd class="bg-slate-600 px-2 rounded">Space</kbd></p>
+                            <p class="text-xs text-slate-400 mt-1">前の終了と次の開始を同時に記録します。</p>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <p class="font-bold text-amber-400 mb-1">【個別モード】</p>
+                            <p><kbd class="bg-slate-600 px-2 rounded">S</kbd> : 開始を記録 / <kbd class="bg-slate-600 px-2 rounded">D</kbd> : 終了を記録</p>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <p class="font-bold text-indigo-400 mb-1">【1つ戻る】</p>
+                            <p><kbd class="bg-slate-600 px-2 rounded">Backspace</kbd></p>
+                            <p class="text-xs text-slate-400 mt-1">1つ前の行を取り消してやり直すことができます。</p>
+                        </div>
+                    </div>
+                    <div id="guideLrc" class="grid grid-cols-2 gap-4 text-sm hidden">
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <p class="font-bold text-pink-400 mb-1">【LRC連続モード】</p>
+                            <p class="mb-2"><kbd class="bg-slate-600 px-2 rounded">Space</kbd> または <kbd class="bg-slate-600 px-2 rounded">Enter</kbd></p>
+                            <p class="text-xs text-slate-400">押された瞬間にタイムタグを打ち、<br>自動で次の行へ進みます。</p>
+                        </div>
+                        <div class="bg-slate-800 p-3 rounded-lg border border-slate-700">
+                            <p class="font-bold text-indigo-400 mb-1">【1つ戻る】</p>
+                            <p><kbd class="bg-slate-600 px-2 rounded">Backspace</kbd></p>
+                            <p class="text-xs text-slate-400 mt-1">1つ前の行を取り消してやり直すことができます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右カラム -->
+            <div class="lg:col-span-5 flex flex-col gap-4">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 flex-grow flex flex-col min-h-[500px]">
+                    <div class="flex justify-between items-center mb-2">
+                        <label class="text-sm font-semibold">2. テキストの準備</label>
+                        <button id="resetBtn" class="text-xs text-red-500 hover:underline hidden">やり直す</button>
+                    </div>
+                    
+                    <div id="inputControls" class="mb-4">
+                         <input type="file" id="textInput" accept=".txt" class="block w-full text-sm text-slate-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-indigo-50 file:text-indigo-700 hover:file:bg-indigo-100 cursor-pointer">
+                         <p class="text-[10px] text-slate-400 leading-tight">改行ごとに1つの字幕・歌詞として扱います。 <br>※「|」（パイプ）を入れるとその位置で字幕内改行するように出力します。</p>
+                    </div>
+                    
+                    <div id="editorArea" class="flex-grow overflow-y-auto border border-slate-100 rounded-lg p-2 bg-slate-50 relative">
+                        <textarea id="textSource" placeholder="テキストを貼り付けるかファイルを選択..." class="w-full h-full absolute top-0 left-0 p-4 bg-transparent outline-none resize-none z-10"></textarea>
+                        <div id="linePreview" class="w-full pointer-events-none hidden p-2"></div>
+                    </div>
+
+                    <div id="statusInfo" class="mt-4 p-3 bg-slate-100 rounded-lg text-sm hidden flex justify-between items-center">
+                        <span>進行状況: <span id="currentLineDisplay" class="font-bold">1</span> / <span id="totalLines">0</span></span>
+                        <span id="modeBadge" class="px-2 py-0.5 rounded text-[10px] font-bold text-white bg-indigo-500">SRT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const mediaInput = document.getElementById('mediaInput');
+        const textInput = document.getElementById('textInput');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const audioPlayer = document.getElementById('audioPlayer');
+        const textSource = document.getElementById('textSource');
+        const linePreview = document.getElementById('linePreview');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const currentLineDisplay = document.getElementById('currentLineDisplay');
+        const totalLinesDisplay = document.getElementById('totalLines');
+        const statusInfo = document.getElementById('statusInfo');
+        const modeSwitch = document.getElementById('modeSwitch');
+        const modeStatus = document.getElementById('modeStatus');
+        const modeBadge = document.getElementById('modeBadge');
+        const guideSrt = document.getElementById('guideSrt');
+        const guideLrc = document.getElementById('guideLrc');
+
+        let activePlayer = null;
+        let recordedData = []; 
+        let currentIndex = 0;
+        let isRecording = false;
+        let currentMode = 'SRT';
+
+        // モード切替
+        modeSwitch.addEventListener('click', () => {
+            if (isRecording) return;
+            if (currentMode === 'SRT') {
+                currentMode = 'LRC';
+                modeSwitch.classList.add('lrc-active');
+            } else {
+                currentMode = 'SRT';
+                modeSwitch.classList.remove('lrc-active');
+            }
+            modeStatus.textContent = `Mode: ${currentMode}`;
+            modeBadge.textContent = currentMode;
+            modeBadge.className = `px-2 py-0.5 rounded text-[10px] font-bold text-white ${currentMode === 'SRT' ? 'bg-indigo-500' : 'bg-pink-500'}`;
+            guideSrt.classList.toggle('hidden', currentMode === 'LRC');
+            guideLrc.classList.toggle('hidden', currentMode === 'SRT');
+        });
+
+        mediaInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const url = URL.createObjectURL(file);
+            if (file.type.startsWith('video/')) {
+                videoPlayer.src = url;
+                document.getElementById('mediaContainer').classList.remove('hidden');
+                document.getElementById('audioContainer').classList.add('hidden');
+                activePlayer = videoPlayer;
+            } else {
+                audioPlayer.src = url;
+                document.getElementById('mediaContainer').classList.add('hidden');
+                document.getElementById('audioContainer').classList.remove('hidden');
+                activePlayer = audioPlayer;
+            }
+        });
+
+        textInput.addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = (ev) => {
+                textSource.value = ev.target.result;
+                startSyncSession();
+            };
+            reader.readAsText(file);
+        });
+
+        function startSyncSession() {
+            const text = textSource.value.trim();
+            if (!text) return;
+            const lines = text.split('\n').map(l => l.trim()).filter(l => l.length > 0);
+            recordedData = lines.map(t => ({ text: t, start: null, end: null }));
+            textSource.classList.add('hidden');
+            linePreview.classList.remove('hidden');
+            statusInfo.classList.remove('hidden');
+            resetBtn.classList.remove('hidden');
+            modeSwitch.style.pointerEvents = 'none';
+            modeSwitch.style.opacity = '0.6';
+            totalLinesDisplay.textContent = recordedData.length;
+            currentIndex = 0;
+            isRecording = true;
+            renderPreview();
+        }
+
+        resetBtn.addEventListener('click', () => {
+            if(!confirm("進行状況が消去されます。戻りますか？")) return;
+            isRecording = false;
+            textSource.classList.remove('hidden');
+            linePreview.classList.add('hidden');
+            statusInfo.classList.add('hidden');
+            resetBtn.classList.add('hidden');
+            modeSwitch.style.pointerEvents = 'auto';
+            modeSwitch.style.opacity = '1';
+            downloadBtn.disabled = true;
+        });
+
+        function renderPreview() {
+            linePreview.innerHTML = '';
+            recordedData.forEach((item, idx) => {
+                const div = document.createElement('div');
+                div.className = `p-2 mb-1 rounded text-sm transition-all border-l-4 border-transparent ${idx === currentIndex ? 'active-line' : ''} ${item.start !== null ? 'recorded-line' : ''}`;
+                let timeInfo = '';
+                if (item.start !== null) {
+                    timeInfo = currentMode === 'SRT' ? 
+                        `[${formatSrtTime(item.start)} → ${item.end !== null ? formatSrtTime(item.end) : '...'}]` : 
+                        `[${formatLrcTime(item.start)}]`;
+                }
+                const displayText = item.text.replace(/\|/g, ' <span class="text-slate-300">↵</span> ');
+                div.innerHTML = `<span class="opacity-30 mr-2 text-[10px]">${idx+1}</span><span>${displayText}</span><span class="text-[10px] float-right font-mono mt-1 opacity-60">${timeInfo}</span>`;
+                linePreview.appendChild(div);
+            });
+            const activeEl = linePreview.children[currentIndex];
+            if (activeEl) activeEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            currentLineDisplay.textContent = Math.min(currentIndex + 1, recordedData.length);
+            if (currentIndex >= recordedData.length) downloadBtn.disabled = false;
+        }
+
+        function formatSrtTime(s) {
+            const date = new Date(s * 1000);
+            const hh = String(Math.floor(s / 3600)).padStart(2, '0');
+            const mm = String(date.getUTCMinutes()).padStart(2, '0');
+            const ss = String(date.getUTCSeconds()).padStart(2, '0');
+            const ms = String(date.getUTCMilliseconds()).padStart(3, '0');
+            return `${hh}:${mm}:${ss},${ms}`;
+        }
+
+        function formatLrcTime(s) {
+            const m = Math.floor(s / 60);
+            const sec = Math.floor(s % 60);
+            const ms = Math.floor((s % 1) * 100);
+            return `${String(m).padStart(2, '0')}:${String(sec).padStart(2, '0')}.${String(ms).padStart(2, '0')}`;
+        }
+
+        window.addEventListener('keydown', (e) => {
+            if (!isRecording || !activePlayer || currentIndex >= recordedData.length) return;
+            const key = e.key.toLowerCase();
+            const now = activePlayer.currentTime;
+
+            if (currentMode === 'SRT') {
+                if (key === 's') { e.preventDefault(); recordedData[currentIndex].start = now; renderPreview(); }
+                else if (key === 'd') { e.preventDefault(); if (recordedData[currentIndex].start === null) return; recordedData[currentIndex].end = now; currentIndex++; renderPreview(); }
+                else if (key === ' ' || key === 'spacebar') { e.preventDefault(); if (recordedData[currentIndex].start === null) { recordedData[currentIndex].start = now; } else { recordedData[currentIndex].end = now; currentIndex++; if (currentIndex < recordedData.length) recordedData[currentIndex].start = now; } renderPreview(); }
+            } else {
+                if (key === ' ' || key === 'enter') { e.preventDefault(); recordedData[currentIndex].start = now; currentIndex++; renderPreview(); }
+            }
+
+            if (key === 'backspace') {
+                if (currentIndex > 0) {
+                    if (currentMode === 'SRT' && recordedData[currentIndex].start !== null && recordedData[currentIndex].end === null) {
+                        recordedData[currentIndex].start = null;
+                    } else {
+                        currentIndex--;
+                        recordedData[currentIndex].end = null;
+                        if (currentMode === 'LRC') recordedData[currentIndex].start = null;
+                    }
+                    renderPreview();
+                }
+            }
+        });
+
+        downloadBtn.addEventListener('click', () => {
+            let content = '';
+            recordedData.forEach((item, i) => {
+                if (item.start === null) return;
+                if (currentMode === 'SRT') {
+                    if (item.end === null) return;
+                    content += `${i + 1}\n${formatSrtTime(item.start)} --> ${formatSrtTime(item.end)}\n${item.text.replace(/\|/g, '\n')}\n\n`;
+                } else {
+                    // LRCモード: パイプで区切られた各パーツに同じタイムスタンプを付与
+                    const stamp = `[${formatLrcTime(item.start)}]`;
+                    const parts = item.text.split('|');
+                    parts.forEach(p => {
+                        content += `${stamp}${p.trim()}\n`;
+                    });
+                }
+            });
+            const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = currentMode === 'SRT' ? 'subtitle.srt' : 'lyrics.lrc';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+
+        textSource.addEventListener('blur', () => { if (textSource.value.trim() && !isRecording) startSyncSession(); });
+    </script>
+</body>
+</html>

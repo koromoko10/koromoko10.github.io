@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web RSS Reader</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <meta name="description" content="Web上でRSS 1.0 ,2.0 ,Atom等を購読できます。（現在正しく動作しません）">
+	<meta name="keywords" content="koromoko10,koromoko10.github.io,koromoko10.com,ころもこ倉庫,RSS,Atom,webtool">
+
+	<!--og関係-->
+	<meta property="og:url" content="https://koromoko10.com/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Web RSS Reader">
+	<meta property="og:description" content="Web上でRSS 1.0 ,2.0 ,Atom等を購読できます。（現在正しく動作しません）">
+	<meta property="og:site_name" content="ころもこ倉庫">
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:image" content="https://koromoko10.com/img/OGP/OGP_main.png">
+
+	<!--twitter(旧X)のSummary Card関係-->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="ころもこ倉庫">
+	<meta name="twitter:description" content="Web上でRSS 1.0 ,2.0 ,Atom等を購読できます。（現在正しく動作しません）">
+	<meta name="twitter:image" content="https://koromoko10.com/img/OGP/OGP_main.png">
+
+    <link rel="icon" href="/favicon.ico">
+
+	<link rel="manifest" href="https://koromoko10.com/manifest.json">
+
+
+    <style>
+        .feed-container { max-width: 850px; margin: 0 auto; }
+        
+        /* 概要文の行数制限 */
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+        /* ホバー時に表示される要素のアニメーション */
+        .extra-info {
+            max-height: 0;
+            opacity: 0;
+            transition: all 0.3s ease-in-out;
+            overflow: hidden;
+        }
+        .rss-card:hover .extra-info {
+            max-height: 50px;
+            opacity: 1;
+            margin-top: 8px;
+        }
+
+        .loader { border-top-color: #6366f1; animation: spinner 1.5s linear infinite; }
+        @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans">
+
+<div class="feed-container p-4 md:p-8">
+    <header class="mb-8 text-center">
+        <h1 class="text-3xl font-bold text-indigo-600 mb-2">Web RSS Reader</h1>
+        <p class="text-gray-500 text-sm italic">RSS 1.0 ,2.0 ,Atomに対応。<b style="color: #6366f1;">現在正しく動作しません。</b></p>
+    </header>
+
+    <!-- 登録フォーム -->
+    <section class="bg-white p-6 rounded-2xl shadow-sm mb-8 border border-gray-100">
+        <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-500"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            新しいサイトを追加
+        </h2>
+        <div class="flex flex-col sm:flex-row gap-2">
+            <input type="url" id="rss-url" placeholder="https://gigazine.net/news/rss_2.0/" 
+                class="flex-1 border border-gray-200 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-indigo-500 bg-gray-50">
+            <button id="add-btn" class="bg-indigo-600 text-white px-8 py-3 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-100 disabled:opacity-50">
+                追加
+            </button>
+        </div>
+        <div id="status-msg" class="mt-3 text-sm hidden px-2"></div>
+    </section>
+
+    <!-- メインコンテンツ -->
+    <div class="flex flex-col md:flex-row gap-6">
+        <div class="flex-1">
+            <section class="mb-6 flex justify-between items-center">
+                <h2 class="text-xl font-bold flex items-center gap-2">
+                    タイムライン
+                </h2>
+                <button id="refresh-btn" class="p-2 hover:bg-gray-100 rounded-full transition" title="更新">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-indigo-600"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 16h5v5"/></svg>
+                </button>
+            </section>
+
+            <div id="loading" class="hidden flex flex-col items-center justify-center py-20">
+                <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-10 w-10 mb-4"></div>
+                <p class="text-gray-400 text-sm">最新の記事を読み込み中...</p>
+            </div>
+
+            <div id="articles-list" class="space-y-4"></div>
+        </div>
+
+        <!-- サイドバー: 登録済みサイト -->
+        <aside class="w-full md:w-64">
+            <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm sticky top-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-sm font-bold text-gray-400 uppercase tracking-widest">購読リスト</h2>
+                    <span id="site-count" class="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded-full">0</span>
+                </div>
+                <div id="site-list" class="space-y-2"></div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+<script>
+    // State management using LocalStorage
+    let feeds = JSON.parse(localStorage.getItem('rss_reader_feeds')) || [];
+    let articles = [];
+
+    const urlInput = document.getElementById('rss-url');
+    const addBtn = document.getElementById('add-btn');
+    const articlesList = document.getElementById('articles-list');
+    const siteList = document.getElementById('site-list');
+    const statusMsg = document.getElementById('status-msg');
+    const loadingUI = document.getElementById('loading');
+    const refreshBtn = document.getElementById('refresh-btn');
+    const siteCountEl = document.getElementById('site-count');
+
+    // Initialization
+    window.addEventListener('DOMContentLoaded', () => {
+        renderSiteList();
+        fetchAllFeeds();
+    });
+
+    function saveToLocalStorage() {
+        localStorage.setItem('rss_reader_feeds', JSON.stringify(feeds));
+    }
+
+    addBtn.addEventListener('click', async () => {
+        const url = urlInput.value.trim();
+        if (!url) return;
+        if (feeds.includes(url)) return showMessage('登録済みです', 'text-amber-600');
+
+        addBtn.disabled = true;
+        showMessage('チェック中...', 'text-blue-600');
+
+        const testFetch = await fetchFeed(url);
+        if (testFetch) {
+            feeds.push(url);
+            saveToLocalStorage();
+            urlInput.value = '';
+            renderSiteList();
+            fetchAllFeeds();
+            showMessage('購読を開始しました', 'text-green-600');
+        } else {
+            showMessage('フィードが見つかりません。URLを確認してください。', 'text-red-600');
+        }
+        addBtn.disabled = false;
+    });
+
+    refreshBtn.addEventListener('click', fetchAllFeeds);
+
+    function showMessage(text, colorClass) {
+        statusMsg.textContent = text;
+        statusMsg.className = `mt-3 text-sm font-medium ${colorClass}`;
+        statusMsg.classList.remove('hidden');
+        setTimeout(() => statusMsg.classList.add('hidden'), 4000);
+    }
+
+    function renderSiteList() {
+        siteList.innerHTML = '';
+        siteCountEl.textContent = feeds.length;
+        
+        feeds.forEach((url, index) => {
+            let domain;
+            try {
+                domain = new URL(url).hostname;
+            } catch(e) {
+                domain = url;
+            }
+            
+            const div = document.createElement('div');
+            div.className = 'group flex items-center justify-between p-2 hover:bg-gray-50 rounded-lg transition border border-transparent hover:border-gray-100';
+            div.innerHTML = `
+                <span class="text-xs font-medium text-gray-600 truncate mr-2" title="${url}">${domain}</span>
+                <button class="opacity-0 group-hover:opacity-100 text-gray-300 hover:text-red-500 transition px-1" onclick="removeFeed(${index})">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+                </button>
+            `;
+            siteList.appendChild(div);
+        });
+    }
+
+    window.removeFeed = (index) => {
+        feeds.splice(index, 1);
+        saveToLocalStorage();
+        renderSiteList();
+        fetchAllFeeds();
+    };
+
+    async function fetchAllFeeds() {
+        if (feeds.length === 0) {
+            articlesList.innerHTML = `
+                <div class="bg-white p-12 rounded-2xl border border-dashed border-gray-200 text-center">
+                    <p class="text-gray-400">登録されているサイトがありません。<br>URLを入力して追加してください。</p>
+                </div>`;
+            return;
+        }
+
+        articles = [];
+        loadingUI.classList.remove('hidden');
+        articlesList.innerHTML = '';
+
+        const results = await Promise.all(feeds.map(url => fetchFeed(url)));
+        results.forEach(items => { if (items) articles.push(...items); });
+        articles.sort((a, b) => b.date - a.date);
+
+        loadingUI.classList.add('hidden');
+        renderArticles();
+    }
+
+    async function fetchFeed(url) {
+        // 使用するプロキシのリスト
+        const proxies = [
+            `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+            `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(url)}`
+        ];
+
+        for (const proxyUrl of proxies) {
+            try {
+                const response = await fetch(proxyUrl);
+                if (!response.ok) continue;
+                const data = await response.json();
+                const content = data.contents || data;
+                
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(content, "text/xml");
+                if (xml.querySelector('parsererror')) continue;
+
+                const siteTitle = xml.querySelector('channel > title, feed > title')?.textContent || '不明なサイト';
+                let items = [];
+
+                // RSS 2.0/1.0
+                const rssItems = xml.querySelectorAll('item');
+                if (rssItems.length > 0) {
+                    rssItems.forEach(el => {
+                        const title = el.querySelector('title')?.textContent || 'No Title';
+                        const link = el.querySelector('link')?.textContent || el.querySelector('link')?.getAttribute('href');
+                        const pubDate = el.querySelector('pubDate, date, published')?.textContent;
+                        const desc = el.querySelector('description, summary')?.textContent || '';
+                        const author = el.querySelector('creator, author, name')?.textContent || '';
+                        const categories = Array.from(el.querySelectorAll('category')).map(c => c.textContent);
+                        
+                        let thumbnail = el.querySelector('enclosure[type^="image"]')?.getAttribute('url') || 
+                                       el.querySelector('content[url*="image"]')?.getAttribute('url') ||
+                                       extractImageFromHtml(desc);
+
+                        items.push({
+                            title, link, date: pubDate ? new Date(pubDate) : new Date(0),
+                            siteTitle, thumbnail,
+                            description: cleanHtml(desc),
+                            author: author,
+                            categories: categories
+                        });
+                    });
+                } else {
+                    // Atom
+                    const atomEntries = xml.querySelectorAll('entry');
+                    atomEntries.forEach(el => {
+                        const title = el.querySelector('title')?.textContent || 'No Title';
+                        const link = el.querySelector('link[rel="alternate"]')?.getAttribute('href') || el.querySelector('link')?.getAttribute('href');
+                        const pubDate = el.querySelector('published, updated')?.textContent;
+                        const desc = el.querySelector('content, summary')?.textContent || '';
+                        const author = el.querySelector('author > name')?.textContent || '';
+                        const categories = Array.from(el.querySelectorAll('category')).map(c => c.getAttribute('term') || c.textContent);
+
+                        let thumbnail = el.querySelector('link[rel="enclosure"][type^="image"]')?.getAttribute('href') ||
+                                       extractImageFromHtml(desc);
+
+                        items.push({
+                            title, link, date: pubDate ? new Date(pubDate) : new Date(0),
+                            siteTitle, thumbnail,
+                            description: cleanHtml(desc),
+                            author: author,
+                            categories: categories
+                        });
+                    });
+                }
+                return items;
+            } catch (e) { console.error("Proxy error:", e); }
+        }
+        return null;
+    }
+
+    function cleanHtml(html) {
+        if (!html) return '';
+        const tmp = document.createElement('div');
+        tmp.innerHTML = html;
+        // スクリプトや不要なタグを除去したプレーンテキストを取得
+        return tmp.textContent || tmp.innerText || '';
+    }
+
+    function extractImageFromHtml(html) {
+        if (!html) return null;
+        const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+        return match ? match[1] : null;
+    }
+
+    function renderArticles() {
+        if (articles.length === 0) {
+            articlesList.innerHTML = '<div class="text-center py-20 text-gray-400">記事がありません。</div>';
+            return;
+        }
+
+        articlesList.innerHTML = articles.map(article => `
+            <article class="rss-card group bg-white p-5 rounded-2xl shadow-sm border border-gray-100 hover:border-indigo-200 hover:shadow-md transition-all">
+                <a href="${article.link}" target="_blank" rel="noopener noreferrer" class="flex gap-4">
+                    ${article.thumbnail ? `
+                        <div class="flex-shrink-0 w-24 h-24 sm:w-32 sm:h-32 bg-gray-50 rounded-xl overflow-hidden border border-gray-50">
+                            <img src="${article.thumbnail}" alt="" class="w-full h-full object-cover transition duration-500 group-hover:scale-105" onerror="this.parentElement.style.display='none'">
+                        </div>
+                    ` : ''}
+                    
+                    <div class="flex-1 min-w-0">
+                        <div class="flex items-center gap-2 mb-2">
+                            <span class="text-[10px] font-black text-indigo-500 uppercase tracking-tighter px-2 py-0.5 bg-indigo-50 rounded-md truncate max-w-[120px]">
+                                ${article.siteTitle}
+                            </span>
+                            <span class="text-xs text-gray-400">${formatDate(article.date)}</span>
+                        </div>
+                        
+                        <h3 class="text-base sm:text-lg font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors leading-snug">
+                            ${article.title}
+                        </h3>
+                        
+                        <p class="text-sm text-gray-500 line-clamp-2 sm:line-clamp-3 leading-relaxed">
+                            ${article.description}
+                        </p>
+
+                        <!-- ホバー時のみ表示される詳細情報 -->
+                        <div class="extra-info flex flex-wrap gap-2 items-center">
+                            ${article.author ? `
+                                <span class="text-[10px] text-gray-400 flex items-center gap-1">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                    ${article.author}
+                                </span>
+                            ` : ''}
+                            ${article.categories.slice(0, 3).map(cat => `
+                                <span class="text-[10px] bg-gray-100 text-gray-500 px-2 py-0.5 rounded">#${cat}</span>
+                            `).join('')}
+                        </div>
+                    </div>
+                </a>
+            </article>
+        `).join('');
+    }
+
+    function formatDate(date) {
+        if (isNaN(date.getTime())) return '不明';
+        const now = new Date();
+        const diff = (now - date) / 1000;
+        if (diff < 60) return '今さっき';
+        if (diff < 3600) return Math.floor(diff / 60) + '分前';
+        if (diff < 86400) return Math.floor(diff / 3600) + '時間前';
+        return date.toLocaleDateString('ja-JP', { month: 'short', day: 'numeric' });
+    }
+</script>
+</body>
+</html>

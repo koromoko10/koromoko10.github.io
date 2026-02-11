@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUE 変換ツール</title>
+    <meta name="description" content="360周期のHUEを255周期のHUEに変換します">
+	<meta name="keywords" content="koromoko10,koromoko10.github.io,koromoko10.com,ころもこ倉庫,HUE,Ninty Launcher,webtool">
+
+	<!--og関係-->
+	<meta property="og:url" content="https://koromoko10.com/">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="HUE 変換ツール">
+	<meta property="og:description" content="360周期のHUEを255周期のHUEに変換します">
+	<meta property="og:site_name" content="ころもこ倉庫">
+	<meta property="og:locale" content="ja_JP">
+	<meta property="og:image" content="https://koromoko10.com/img/OGP/OGP_main.png">
+
+	<!--twitter(旧X)のSummary Card関係-->
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:title" content="ころもこ倉庫">
+	<meta name="twitter:description" content="360周期のHUEを255周期のHUEに変換します">
+	<meta name="twitter:image" content="https://koromoko10.com/img/OGP/OGP_main.png">
+
+    <link rel="icon" href="/favicon.ico">
+
+	<link rel="manifest" href="https://koromoko10.com/manifest.json">
+
+
+    <!-- Tailwind CSS CDNの読み込み -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen flex items-center justify-center p-4">
+    <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+        <h1 class="text-3xl font-bold text-gray-800 mb-6 text-center">HUE 変換ツール</h1>
+
+        <div>このツールで360周期のHUEを255周期のHUEに変換することができます。<br>Ninty Launcher等での色の指定に便利かも。</div>
+        <br>
+
+        <!-- プリセットボタン -->
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-semibold mb-2">プリセット</label>
+            <div class="flex flex-wrap gap-2">
+                <button onclick="setHue(0)" class="w-8 h-8 rounded-full border border-gray-300 shadow-sm transition-transform active:scale-90" style="background-color: hsl(0, 100%, 50%)" title="赤"></button>
+                <button onclick="setHue(30)" class="w-8 h-8 rounded-full border border-gray-300 shadow-sm transition-transform active:scale-90" style="background-color: hsl(30, 100%, 50%)" title="橙"></button>
+                <button onclick="setHue(60)" class="w-8 h-8 rounded-full border border-gray-300 shadow-sm transition-transform active:scale-90" style="background-color: hsl(60, 100%, 50%)" title="黄"></button>
+                <button onclick="setHue(120)" class="w-8 h-8 rounded-full border border-gray-300 shadow-sm transition-transform active:scale-90" style="background-color: hsl(120, 100%, 50%)" title="緑"></button>
+                <button onclick="setHue(180)" class="w-8 h-8 rounded-full border border-gray-300 shadow-sm transition-transform active:scale-90" style="background-color: hsl(180, 100%, 50%)" title="水色"></button>
+                <button onclick="setHue(240)" class="w-8 h-8 rounded-full border border-gray-300 shadow-sm transition-transform active:scale-90" style="background-color: hsl(240, 100%, 50%)" title="青"></button>
+                <button onclick="setHue(300)" class="w-8 h-8 rounded-full border border-gray-300 shadow-sm transition-transform active:scale-90" style="background-color: hsl(300, 100%, 50%)" title="紫"></button>
+            </div>
+        </div>
+
+        <div class="mb-5">
+            <label for="inputHue360" class="block text-gray-700 text-sm font-semibold mb-2">
+                元のHUE (0-360):
+            </label>
+            <input type="number" id="inputHue360" min="0" max="360" value="0"
+                   class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition duration-200 ease-in-out"
+                   placeholder="0から360の値を入力">
+            <p id="errorMsg" class="text-red-500 text-xs mt-1 hidden">
+                0から360の有効なHUE値を入力してください。
+            </p>
+        </div>
+
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-semibold mb-2">
+                変換されたHUE (0-255):
+            </label>
+            <div class="relative flex items-center">
+                <p id="outputHue255"
+                   class="bg-gray-50 border border-gray-200 rounded-lg w-full py-3 px-4 text-gray-800 text-xl font-mono flex items-center justify-center">
+                    0
+                </p>
+                <button id="copyButton" 
+                        class="absolute right-2 bg-white hover:bg-gray-100 border border-gray-300 text-gray-600 px-3 py-1 rounded text-sm transition-colors active:bg-gray-200">
+                    コピー
+                </button>
+            </div>
+            <p id="copyFeedback" class="text-green-600 text-xs mt-1 text-center hidden">コピーしました！</p>
+        </div>
+
+        <div class="flex justify-around items-center gap-4 mb-4">
+            <div class="flex flex-col items-center">
+                <span class="text-gray-500 text-xs mb-1">元のHUE</span>
+                <div id="colorPreview360"
+                     class="w-20 h-20 rounded-full border-4 border-gray-300 shadow-md transition-colors"
+                     style="background-color: hsl(0, 100%, 50%);"></div>
+            </div>
+            <div class="flex flex-col items-center">
+                <span class="text-gray-500 text-xs mb-1">変換されたHUE</span>
+                <div id="colorPreview255"
+                     class="w-20 h-20 rounded-full border-4 border-gray-300 shadow-md transition-colors"
+                     style="background-color: hsl(0, 100%, 50%);"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const inputHue360 = document.getElementById('inputHue360');
+        const outputHue255 = document.getElementById('outputHue255');
+        const colorPreview360 = document.getElementById('colorPreview360');
+        const colorPreview255 = document.getElementById('colorPreview255');
+        const errorMsg = document.getElementById('errorMsg');
+        const copyButton = document.getElementById('copyButton');
+        const copyFeedback = document.getElementById('copyFeedback');
+
+        /**
+         * プリセットボタンから値をセットする関数
+         */
+        function setHue(val) {
+            inputHue360.value = val;
+            performConversion();
+        }
+
+        /**
+         * 0-360を0-255に変換
+         */
+        function convertHue(hue360) {
+            return Math.round((hue360 / 360) * 255);
+        }
+
+        /**
+         * プレビュー表示の更新
+         */
+        function updateColorPreview(element, hue, currentScaleMax) {
+            let cssHue = currentScaleMax === 360 ? hue : (hue / 255) * 360;
+            element.style.backgroundColor = `hsl(${cssHue}, 100%, 50%)`;
+        }
+
+        /**
+         * メインの変換処理
+         */
+        function performConversion() {
+            const hue360Value = parseFloat(inputHue360.value);
+
+            if (isNaN(hue360Value) || hue360Value < 0 || hue360Value > 360) {
+                errorMsg.classList.remove('hidden');
+                outputHue255.textContent = '-';
+                return;
+            } else {
+                errorMsg.classList.add('hidden');
+            }
+
+            const hue255Value = convertHue(hue360Value);
+            outputHue255.textContent = hue255Value;
+
+            updateColorPreview(colorPreview360, hue360Value, 360);
+            updateColorPreview(colorPreview255, hue255Value, 255);
+        }
+
+        /**
+         * クリップボードへコピー
+         */
+        function copyToClipboard() {
+            const val = outputHue255.textContent;
+            if (val === '-') return;
+
+            const tempInput = document.createElement('input');
+            tempInput.value = val;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            // フィードバック表示
+            copyFeedback.classList.remove('hidden');
+            setTimeout(() => copyFeedback.classList.add('hidden'), 2000);
+        }
+
+        inputHue360.addEventListener('input', performConversion);
+        copyButton.addEventListener('click', copyToClipboard);
+
+        // 初期表示
+        performConversion();
+    </script>
+</body>
+</html>
