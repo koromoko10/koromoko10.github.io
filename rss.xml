@@ -5,7 +5,18 @@
         <link>https://koromoko10.com/</link>
         <description>ころもこ倉庫は、便利なツールからちょっとしたゲームまで、koromoko10が気ままに作った作品を保管・公開する、ちょっと不思議で自由なデジタル倉庫です。</description>
         <language>ja</language>
-        <lastBuildDate>Wed, 11 Feb 2026 18:16:00 +0900</lastBuildDate>
+        <lastBuildDate>Wed, 11 Feb 2026 18:41:00 +0900</lastBuildDate>
+
+        <item>
+            <title>ころもこ倉庫にWebツール集追加！</title>
+            <link>https://koromoko10.com/tool/?RSS=5</link>
+            <guid>https://koromoko10.com/tool/?RSS=5</guid>
+            <pubDate>Wed, 11 Feb 2026 18:41:00 +0900</pubDate>
+            <category><![CDATA[サイト更新情報]]></category>
+            <description><![CDATA[<h2>ころもこ倉庫にWebツール集が公開されました！</h2>ころもこ倉庫の<a href="https://koromoko10.com/tool/" target="_blank">Webツール一覧ページ</a>にて<br>歌詞や字幕などの同期歌詞を手軽に作成できるツールやそれのプレビューツール、HUEの数値を変換する（Ninty Launcher用に）ツールなど<br>様々なちょっと便利になるかもしれないものを公開しました！ご確認ください！<br>※先ほど送信したRSSに誤りがあったので再送信しました。]]></description>
+            <media:thumbnail url="https://koromoko10.com/tool/SRT_LRC-Maker.png" />
+            <dc:creator>koromoko10</dc:creator>
+        </item>
 
         <item>
             <title>リダイレクトに関するお知らせ</title>
