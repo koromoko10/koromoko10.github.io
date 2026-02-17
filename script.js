@@ -67,3 +67,17 @@ function goTopDisp(){
     btn.style.display = "";
   }
 }
+
+
+//Nprogress
+document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        NProgress.start();
+      });
+    });
+  });
+
+  window.addEventListener("load", function () {
+    NProgress.done();
+  });
