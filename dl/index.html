@@ -32,8 +32,9 @@
 		<script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.11.33/dist/cdn/beer.min.js"></script>
 		<script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.2/dist/cdn/material-dynamic-colors.min.js"></script>
 
-		<link rel="stylesheet" href="color_v2.css">
-		<!--<link rel="stylesheet" href="color_ex_smg.css">-->
+		<!--<link rel="stylesheet" href="color_v2.css">-->
+		<link rel="stylesheet" href="color_ex_smg.css">
+		<link rel="stylesheet" href="other.css">
 		
 	</head>
 	<body class="light">
@@ -66,6 +67,10 @@
     			<i>home</i>
     			<div>TOP</div>
   			</a>
+			<a href="#topic">
+				<i>interests</i>
+				<div>特集</div>
+			</a>
 			<a href="#wall">
     			<i>Wallpaper</i>
     			<div>壁紙</div>
@@ -80,7 +85,7 @@
 				<i>dashboard_customize</i>
 				<div>カスタムテーマ</div>
 				<!--<div class="badge border">1</div>-->
-				<div class="badge">2</div>
+				<div class="badge">1</div>
 			</a>
 			<a href="#ymmt">
 				<i>book</i>
@@ -109,6 +114,15 @@
 		<dialog class="right" id="dialog-info">
 			<h5>このページの更新情報</h5>
 			<div>
+				<h6>2026/04/26</h6>
+				The Super Mario Galaxy Movie公開記念！
+				<ul>
+					<li>サイトカラーをSuper Mario Galaxy仕様にしました！</li>
+					<li>マウスカーソルをマリオギャラクシーのポインターに変更しました！</li>
+					<li>テキスト選択色を変更しました！</li>
+					<li>SMGのNinty Launcherカスタムテーマを公開しました！</li>
+					<li>サイト上部に特集欄を追加しました！</li>
+				</ul>
 				<h6>2026/02/11</h6>
 				<ul>
 					<li>サイトカラーを薄い緑色に変更しました！<br>これからはこれが基本カラーになると思います。</li>
@@ -177,6 +191,10 @@
     				<i>home</i>
     				<div>ページ上部に戻る</div>
 				</a>
+				<a class="ripple" data-ui="#dialog-menu" href="#topic">
+    				<i>interests</i>
+    				<div>特集</div>
+				</a>
 				<a class="ripple" data-ui="#dialog-menu" href="#wall">
     				<i>Wallpaper</i>
     				<div>PC用壁紙</div>
@@ -189,7 +207,7 @@
     				<i>dashboard_customize</i>
     				<div>Ninty Launcher用カスタムテーマ</div>
 					<!--<b>更新1件</b>-->
-					<b>新規2件</b>
+					<b>新規1件</b>
 				</a>
 				<a class="ripple" data-ui="#dialog-menu" href="#ymmt">
     				<i>book</i>
@@ -221,6 +239,30 @@
 				このページではkoromoko10が作成した壁紙やアイコン、カスタムテーマなどを無料で配布しています！<br>
 				ご自由にお使い下さい！（画像サイズには注意してください。）
 			</p>
+
+			<h5 id="topic">特集</h5>
+			<article class="fill">
+  				<div class="grid no-space">
+    				<div class="s6">
+      					<img class="responsive" src="assets/SMG2_forNinty.png">
+      					<div class="absolute top left right padding top-shadow white-text">
+        					<h5>SMG1+2 for Ninty</h5>
+        					<p>The Super Mario Galaxy Movie公開記念</p>
+      					</div>
+    				</div>
+    				<div class="s6">
+      					<div class="padding">
+        					<h5>Super Mario Galaxy 1+2 [ コースセレクト画面風 ]</h5>
+        					<p>The Super Mario Galaxy Movie公開記念ということで、<br>Ninty Launcher上で動作するスーパーマリオギャラクシーのコースセレクト画面のような<br>カスタムテーマを作ってみました！<br>スーパーマリオギャラクシーのほかに<b>スーパーマリオギャラクシー２風のものも用意しています！</b><br>色はSMGの[青/紫/赤]の3色とSMG2の[紫/赤]の2色で合計5色です！<br>それぞれコースセレクトのBGMも再生されるようにしておきました！<br>試しに入れてみては？</p>
+        					<nav>
+								<a href="assets/SMG1+2_Theme_forNinty.zip" download>
+          							<button class="border secondary-border secondary-text">ダウンロード</button>
+								</a>
+        					</nav>
+      					</div>
+    				</div>
+  				</div>
+			</article>
 
 			<h5 id="wall">PC用壁紙</h5>
 			<div class="grid medium-space">
@@ -407,6 +449,21 @@
     						<p>WiiUのホーム画面を元にしたテーマです！<br>WiiUのホーム画面同様BGMも流れます！<br>実は分かりにくいですがWiiテーマとカーソルの色が違います！</p>
     						<nav>
 								<a href="assets/WiiU_Theme_forNinty.zip" download>
+    								<button>ダウンロード</button>
+								</a>
+    						</nav>
+						</div>
+					</article>
+				</div>
+
+				<div class="s12 m6 l3">
+					<article class="no-padding border">
+						<img class="responsive small" src="assets/SMG2_forNinty.png">
+						<div class="padding">
+    						<h5>Super Mario Galaxy 1+2</h5>
+    						<p>マリオギャラクシーのコースセレクト画面風テーマです！（映画公開記念！）<br>SMGで[青/紫/赤]の3色、SMG2で[紫/赤]の2色を用意しています！<br>それぞれBGMも再生されるようになってます！</p>
+    						<nav>
+								<a href="assets/SMG1+2_Theme_forNinty.zip" download>
     								<button>ダウンロード</button>
 								</a>
     						</nav>

@@ -5,8 +5,19 @@
         <link>https://koromoko10.com/</link>
         <description>ころもこ倉庫は、便利なツールからちょっとしたゲームまで、koromoko10が気ままに作った作品を保管・公開する、ちょっと不思議で自由なデジタル倉庫です。</description>
         <language>ja</language>
-        <lastBuildDate>Wed, 11 Feb 2026 18:41:00 +0900</lastBuildDate>
+        <lastBuildDate>Sun, 26 Apr 2026 10:44:00 +0900</lastBuildDate>
 
+        <item>
+            <title>マリオギャラクシーのカスタムテーマ配布！</title>
+            <link>https://koromoko10.com/dl</link>
+            <guid>https://koromoko10.com/dl</guid>
+            <pubDate>Sun, 26 Apr 2026 10:44:00 +0900</pubDate>
+            <category><![CDATA[DLサイト更新情報]]></category>
+            <description><![CDATA[<h2>ダウンロードサイトでマリオギャラクシーのカスタムテーマを配布します！</h2>The Super Mario Galaxy Movie公開おめでとう！<br>ころもこ倉庫の<a href="https://koromoko10.com/dl/" target="_blank">ダウンロードサイト</a>にて<br>Ninty Launcherで動作するSuper Mario Galaxyのコースセレクト画面風テーマを公開しました！<br>Super Mario Galaxyだけでなく<b>Super Mario Galaxy 2のものも用意しています！</b><br>色はSMGの青/紫/赤の3色とSMG2の紫/赤の2色の合計5色あります！<br>それぞれBGMの再生されるようになってます！<br>試しに入れてみては？]]></description>
+            <media:thumbnail url="https://koromoko10.com/tool/SRT_LRC-Maker.png" />
+            <dc:creator>koromoko10</dc:creator>
+        </item>
+        
         <item>
             <title>ころもこ倉庫にWebツール集追加！</title>
             <link>https://koromoko10.com/tool/?RSS=5</link>
