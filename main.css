@@ -13,11 +13,13 @@
 	background-color: light-dark(#c0c0c0,#535353);
 	box-shadow: inset light-dark(#7b7b7b,#020202) 0 0 5px 1px;
 	border-radius: 20px;
+	cursor: crosshair;
 }
 
 ::-webkit-scrollbar-thumb {
 	background-color: #006600;
 	border-radius: 20px;
+	cursor: grab;
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -26,6 +28,7 @@
 
 ::-webkit-scrollbar-thumb:active {
 	background-color: #084f08;
+	cursor: grabbing;
 }
 
 
@@ -312,27 +315,7 @@ a:hover {
 	background    : light-dark(rgba(0, 51, 0, 0.5),rgba(51, 153, 0, 0.5));     /* カーソル時背景色 */
 	/* opacity       : 0.9;    カーソル時透明度 */
   }
-
-
-  .member-zone {
-	display: grid;
-    grid-template-columns: 50% 50%;
-  }
-
-  .member {
-	display: flex;
-	height: auto;
-	margin: 10px 10px 10px;
-	padding: 10px 10px;
-	background-color: light-dark(#dcdcdc,#333333);
-	border-style: dotted;
-	border-width: 2px;
-	border-color: light-dark(#333333,#dcdcdc);
-	border-radius: 15px;
-	box-shadow: light-dark(#cedfcea6,#4b4b4bb8) 0px 1px 8px 6px;
-  }
-
-
+  
   h1 {
 	font-size: 32px;
   }
