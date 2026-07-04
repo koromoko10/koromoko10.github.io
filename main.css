@@ -199,11 +199,13 @@ a:hover {
     margin: 0 !important;
     padding: 9px !important;
     background: #73c05787;
-	border: 2px solid #fafafa9e;
+	border-style: solid;
+	border-width: 2px 0px 2px 0px;
+	border-color: #fafafa9e;
     border-radius: 20px;
     box-shadow: #9c9c9c80 0px 0px 10px 3px;
-    backdrop-filter: blur(5px);
-	-webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
 }
 
 .content-img img {
@@ -291,29 +293,31 @@ a:hover {
 */
 .topIcon {
 	display       : inline-block;
-	position      : fixed;       /* ボタン固定 */
-	bottom        : 20px;        /* 下から位置 */
-	right         : 19px;        /* 右から位置 */
-	padding       : 21px 21px;   /* 余白       */
-	background    : light-dark(rgba(0, 51, 0, 0.3), rgba(51, 153, 0, 0.3));     /* 背景色     */
-	color         : light-dark(#ffffff,#bbbbbb);     /* 文字色     */
-	/* opacity       : 0.5;          透明度     */
-	border-radius : 33%;        /* 角丸       */
-	font-size     : 12pt;        /* 文字サイズ */
-	font-weight   : bold;        /* 太字       */
-	line-height   : 1.2em;       /* 行の高さ   */
-	letter-spacing: 2px;         /* 文字間隔   */
-	text-align    : center;      /* 文字位置   */
-	cursor        : pointer;     /* カーソル   */
-	z-index       : 999;         /* 重ね順位   */
-	backdrop-filter: blur(4px); /*ブラー効果（修正済み）*/
-	-webkit-backdrop-filter: blur(4px); /*safariなど対応*/
-	box-shadow: light-dark(rgba(0, 51, 0, 0.3), rgba(51, 153, 0, 0.3)) 0px 1px 10px 0px; /*ちょっと影*/
+	position      : fixed;
+	bottom        : 20px;
+	right         : 19px;
+	padding       : 21px 21px;
+	background    : light-dark(#1a891a5c, #4ccc0c4d);
+	color         : light-dark(#ffffff,#cdcdcd);
+	border-style  : solid;
+    border-color  : light-dark(#808080b8,#f4f4f4b8);
+    border-width  : 1px 0px 1px 0px;
+	border-radius : 33%;
+	font-size     : 12pt;
+	font-weight   : bold;
+	line-height   : 1.2em;
+	letter-spacing: 2px;
+	text-align    : center;
+	cursor        : pointer;
+	z-index       : 999;
+	backdrop-filter: blur(3px);
+	-webkit-backdrop-filter: blur(3px);
+	box-shadow    : light-dark(#1a891a5c, #4ccc0c4d) 0px 1px 10px 0px;
+	transition    : background-color .3s cubic-bezier(0.01, 0.99, 1, 1.15);
   }
   
   .topIcon:hover {
-	background    : light-dark(rgba(0, 51, 0, 0.5),rgba(51, 153, 0, 0.5));     /* カーソル時背景色 */
-	/* opacity       : 0.9;    カーソル時透明度 */
+	background    : light-dark(#043c0466, #67ff1b4d);
   }
   
   h1 {
