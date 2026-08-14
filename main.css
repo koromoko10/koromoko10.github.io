@@ -280,13 +280,12 @@ a:hover {
 }
 
 
-/*Googleカスタム検索の親要素
+/*Googleカスタム検索の親要素*/
 .search-parent  {
 	width: 100% !important;
 	max-width: 500px !important;
 	margin: 0 auto !important;
 }
-*/
 
 
 /* 上に戻るボタン
