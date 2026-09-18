@@ -1,0 +1,290 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="koromoko10が作成した壁紙やアイコン、テーマなどを全て無料配布しています！">
+		<meta name="author" content="koromoko10">
+		<meta name="keywords" content="koromoko10,koromoko10.com,壁紙,配布,Ninty">
+		<title>Ninty Launcher | 壁紙・アイコン等ダウンロード</title>
+		<link rel="author" href="https://lit.link/koromoko10/">
+
+		<!--og関係-->
+		<meta property="og:url" content="https://koromoko10.com/">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="壁紙・アイコン等ダウンロード">
+		<meta property="og:description" content="koromoko10が作成した壁紙やアイコン、テーマなどを全て無料配布しています！">
+		<meta property="og:site_name" content="ころもこ倉庫">
+		<meta property="og:locale" content="ja_JP">
+		<meta property="og:image" content="https://koromoko10.com/img/OGP/OGP_main.png">
+
+		<!--twitter(旧X)のSummary Card関係-->
+		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:title" content="壁紙・アイコン等ダウンロード">
+		<meta name="twitter:description" content="koromoko10が作成した壁紙やアイコン、テーマなどを全て無料配布しています！">
+		<meta name="twitter:image" content="https://koromoko10.com/img/OGP/OGP_main.png">
+
+		<link rel="icon" href="/favicon.ico">
+
+		<link rel="manifest" href="https://koromoko10.com/manifest.json">
+
+		<!--Beer CSS-->
+		<link href="https://cdn.jsdelivr.net/npm/beercss@3.11.33/dist/cdn/beer.min.css" rel="stylesheet">
+		<script type="module" src="https://cdn.jsdelivr.net/npm/beercss@3.11.33/dist/cdn/beer.min.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/material-dynamic-colors@1.1.2/dist/cdn/material-dynamic-colors.min.js"></script>
+
+		<link rel="stylesheet" href="color_v2.css">
+		<!--<link rel="stylesheet" href="color_ex_smg.css">-->
+		<link rel="stylesheet" href="other.css">
+		
+	</head>
+	<body class="light">
+		
+		<header class="fill fixed">
+			<nav>
+    			<button class="circle transparent" onclick="history.back()">
+					<i>arrow_back</i>
+    			</button>
+				<h6 class="max">Ninty Launcher</h6>
+			</nav>
+		</header>
+
+		<nav class="left">
+    		<button class="extend square round" data-ui="#dialog-menu">
+    			<i>Menu</i>
+    			<span>メニュー</span>
+    		</button>
+			<a href="index.html">
+    			<i>home</i>
+    			<div>TOP</div>
+  			</a>
+			<a href="#topic">
+				<i>interests</i>
+				<div>特集</div>
+			</a>
+			<a href="wallpaper.html">
+    			<i>Wallpaper</i>
+    			<div>壁紙</div>
+				<!--<div class="badge">New</div>-->
+				<!--<div class="badge">1</div>-->
+			</a>
+			<a href="ninty.html" class="active">
+				<i>dashboard_customize</i>
+				<div>Ninty</div>
+				<!--<div class="badge">New</div>-->
+				<div class="badge">1</div>
+			</a>
+			<a href="ymm4.html">
+				<i>movie_edit</i>
+				<div>YMM4</div>
+				<!--<div class="badge">New</div>-->
+				<!--<div class="badge">1</div>-->
+			</a>
+			<a href="#other">
+				<i>other_admission</i>
+				<div>その他</div>
+				<!--<div class="badge">New</div>-->
+				<!--<div class="badge">1</div>-->
+			</a>
+		</nav>
+
+		<!--ダイアログ部分-->
+		<dialog class="left" id="dialog-menu">
+			<header class="fixed">
+    			<nav>
+					<div class="max padding">
+    					<h6>メニュー</h6>
+					</div>
+    				<button class="transparent circle large" data-ui="#dialog-menu">
+    					<i>close</i>
+    				</button>
+    			</nav>
+			</header>
+			<nav class="left max">
+				<a class="ripple" data-ui="#dialog-menu" href="index.html">
+    				<i>home</i>
+    				<div>TOPページ</div>
+				</a>
+				<a class="ripple" data-ui="#dialog-menu" href="#topic">
+    				<i>interests</i>
+    				<div>特集</div>
+				</a>
+				<a class="ripple" data-ui="#dialog-menu" href="wallpaper.html">
+    				<i>Wallpaper</i>
+    				<div>PC用壁紙</div>
+					<!--<b>新規1件</b>-->
+				</a>
+				<a class="ripple active" data-ui="#dialog-menu" href="ninty.html">
+    				<i>dashboard_customize</i>
+    				<div>Ninty Launcher</div>
+					<b>更新1件</b>
+				</a>
+				<a class="ripple" data-ui="#dialog-menu" href="ymm4.html">
+    				<i>movie_edit</i>
+    				<div>ゆっくりムービーメーカー4</div>
+					<!--<b>新規1件</b>-->
+				</a>
+				<a class="ripple" data-ui="#dialog-menu" href="#other">
+    				<i>other_admission</i>
+    				<div>その他</div>
+					<!--<b>新規1件</b>-->
+				</a>
+			</nav>
+		</dialog>
+		<!--ダイアログ部分ここまで-->
+
+		<!--スナックバー部分ここから-->
+
+		<div class="snackbar" id="errorsnack">
+			<i>warning</i>
+			<span>現在このアイテムはダウンロードできません</span>
+		</div>
+
+		<div class="snackbar primary" id="end-errorsnack">
+			<i>hourglass_bottom</i>
+			<span>このアイテムは配信を終了しました</span>
+		</div>
+
+		<!--スナックバー部分ここまで-->
+
+		<main class="responsive max page right active">
+			<h4 id="main_title">Ninty Launcher</h4>
+			<p>
+				Ninty Launcherで利用できる自作カスタムテーマやアイコンです！<br>
+				Ninty Launcherとは<b><a href="https://ninstar.carrd.co/" target="_blank">NinStar</a></b>さんが開発したゲームランチャーソフトです。<br>
+				Nintendo SwitchのようなUIが特徴的で、カスタマイズ性に優れています。<br>
+				<b><a href="https://ninstars.itch.io/ninty" target="_blank">こちら</a></b>からダウンロードすることができます。
+			</p>
+
+			<h5 id="wall" class="max">0840 Chatテーマ</h5>
+			<div class="grid medium-space">
+
+				<div class="s6">
+					<article class="no-padding border">
+						<img class="responsive small" src="assets/0840_forNinty.png">
+						<div class="padding">
+    						<h5>0840 Chat</h5>
+    						<p>0840 Chatのタイトル画面やタイムラインの画面を<br>元に作成しました！<br>ダークモードに対応したテーマも用意しました！</p>
+    						<nav>
+								<a href="assets/0840_Theme_forNinty.zip" download>
+    								<button>ダウンロード</button>
+								</a>
+    						</nav>
+						</div>
+					</article>
+				</div>
+
+			</div>
+
+			<h5 id="wall" class="max">Super Marioテーマ</h5>
+			<div class="grid medium-space">
+
+				<div class="s6">
+					<article class="no-padding border">
+						<img class="responsive small" src="assets/SMBW_forNinty.png">
+						<div class="padding">
+    						<h5>Super Mario Bros. Wonder</h5>
+    						<p>ワンダー状態をテーマにしました！<br>カーソルやテーマ色もカスタマイズしたので<br>見栄えがかなりいいと思います！</p>
+    						<nav>
+								<a href="assets/SMBW_Theme_forNinty.zip" download>
+    								<button>ダウンロード</button>
+								</a>
+    						</nav>
+						</div>
+					</article>
+				</div>
+
+				<div class="s6">
+					<article class="no-padding fill">
+						<img class="responsive small" src="assets/SMBWii_forNinty.png">
+						<div class="padding">
+    						<h5>Super Mario Bros. Wii (v2)</h5>
+    						<p>任天堂公式から配布されていた壁紙を元に作成しました！<br>文字色を見やすいように改善しました！<br>一応以前のバージョンも入ってます。</p>
+    						<nav>
+								<!--<a href="assets/NSMBWii_Theme_forNinty.zip" download>-->
+    								<button class="border tertiary-border tertiary-text" data-ui="#end-errorsnack">
+										<i>file_download_off</i>
+										<span>ダウンロードできません</span>
+										<!--<div class="badge none border">更新</div>-->
+									</button>
+								<!--</a>-->
+    						</nav>
+						</div>
+					</article>
+				</div>
+
+				<div class="s6">
+					<article class="no-padding border">
+						<img class="responsive small" src="assets/SMG2_forNinty.png">
+						<div class="padding">
+    						<h5>Super Mario Galaxy 1+2</h5>
+    						<p>マリオギャラクシーのコースセレクト画面風テーマです！（映画公開記念！）<br>SMGで[青/紫/赤]の3色、SMG2で[紫/赤]の2色を用意しています！<br>それぞれBGMも再生されるようになってます！</p>
+    						<nav>
+								<a href="assets/SMG1+2_Theme_forNinty.zip" download>
+    								<button>ダウンロード</button>
+								</a>
+    						</nav>
+						</div>
+					</article>
+				</div>
+
+			</div>
+
+			<h5 id="wall" class="max">コンソールテーマ</h5>
+			<div class="grid medium-space">
+
+				<div class="s6">
+					<article class="no-padding border">
+						<img class="responsive small" src="assets/Wii_forNinty.png">
+						<div class="padding">
+    						<h5>Wii Menu Theme</h5>
+    						<p>Wiiのホーム画面を元にしたテーマです！<br>ダークモード（SDカード内）に対応したテーマも用意しました！<br>Wiiのホーム画面同様BGMも流れます！</p>
+    						<nav>
+								<a href="assets/Wii_Theme_forNinty.zip" download>
+    								<button>ダウンロード</button>
+								</a>
+    						</nav>
+						</div>
+					</article>
+				</div>
+
+				<div class="s6">
+					<article class="no-padding border">
+						<img class="responsive small" src="assets/WiiU_forNinty.png">
+						<div class="padding">
+    						<h5>WiiU Menu Theme</h5>
+    						<p>WiiUのホーム画面を元にしたテーマです！<br>WiiUのホーム画面同様BGMも流れます！<br>実は分かりにくいですがWiiテーマとカーソルの色が違います！</p>
+    						<nav>
+								<a href="assets/WiiU_Theme_forNinty.zip" download>
+    								<button>ダウンロード</button>
+								</a>
+    						</nav>
+						</div>
+					</article>
+				</div>
+
+			</div>
+
+			<h5 id="wall" class="max">ランチャー専用アイコン</h5>
+			<div class="grid medium-space">
+
+				<div class="s6">
+					<article class="no-padding border">
+						<img class="responsive small" src="assets/0840_Logo_forNinty.svg">
+						<div class="padding">
+    						<h5>0840 Chat<br>ランチャー専用アイコン</h5>
+    						<p>Ninty Launcherに対応した0840 Chatのアイコンです！<br>アイコンがアニメーションするようになりました！</p>
+    						<nav>
+								<a href="assets/0840_Logo_forNinty.zip" download>
+    								<button>ダウンロード</button>
+								</a>
+    						</nav>
+						</div>
+					</article>
+				</div>
+				
+			</div>
+
+
+		</main>
+	</body>
+</html>

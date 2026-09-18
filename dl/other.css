@@ -1,3 +1,4 @@
+/*
 body {
     cursor: url(Star-Pointer.cur), default !important;
 }
@@ -9,7 +10,17 @@ button {
 body ::selection {
 	background-color : #6f43c096;
 }
-/*FireFox対応*/
+
 body ::-moz-selection {
 	background-color : #6f43c096;
+}
+
+*/
+
+body ::selection {
+    background-color: #6767678a;
+}
+
+body ::-moz-selection {
+    background-color: #6767678a;
 }
