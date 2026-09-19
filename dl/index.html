@@ -55,6 +55,10 @@
     				<i>Info</i>
 					<div class="tooltip bottom">更新情報</div>
     			</button>
+				<button class="circle transparent" data-ui="#dialog-settings">
+      				<i>settings</i>
+					<div class="tooltip bottom">設定</div>
+    			</button>
 			</nav>
 		</header>
 
@@ -117,6 +121,12 @@
 		<dialog class="right" id="dialog-info">
 			<h5>このページの更新情報</h5>
 			<div>
+				<h6>2026/09/19</h6>
+				<ul>
+					<li>ゆっくりムービーメーカー4のページに飛べない問題を修正</li>
+					<li>サブページからTOPページの特集、その他に飛べない問題を修正</li>
+					<li>設定機能の準備（動作しません）</li>
+				</ul>
 				<h6>2026/09/18</h6>
 				大幅リニューアル！
 				<ul>
@@ -239,6 +249,27 @@
 				</a>
 			</nav>
 		</dialog>
+
+		<dialog class="right" id="dialog-settings">
+  			<h5>設定</h5>
+  			<div class="field middle-align">
+  				<nav>
+    				<div class="max">
+      					<h6>ダークモード</h6>
+      					<div>画面を暗くします</div>
+    				</div>
+    				<label class="switch">
+      					<input type="checkbox">
+      					<span></span>
+    				</label>
+  				</nav>
+			</div>
+  			<nav class="right-align">
+    			<button class="border" data-ui="#dialog-settings">キャンセル</button>
+    			<button data-ui="#dialog-settings">OK</button>
+  			</nav>
+		</dialog>
+
 		<!--ダイアログ部分ここまで-->
 
 		<!--スナックバー部分ここから-->
