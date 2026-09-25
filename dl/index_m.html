@@ -228,6 +228,11 @@
 			<span>現在このアイテムはダウンロードできません</span>
 		</div>
 
+		<div class="snackbar primary" id="end-errorsnack">
+			<i>hourglass_bottom</i>
+			<span>このアイテムは配信を終了しました</span>
+		</div>
+
 		<!--スナックバー部分ここまで-->
 
 		<main class="responsive max page right active">
@@ -383,13 +388,13 @@
     						<h5>Super Mario Bros. Wii (v2)</h5>
     						<p>任天堂公式から配布されていた壁紙を元に作成しました！<br>文字色を見やすいように改善しました！<br>一応以前のバージョンも入ってます。</p>
     						<nav>
-								<a href="assets/NSMBWii_Theme_forNinty.zip" download>
-    								<button>
-										<!--<i>update</i>-->
-										<span>ダウンロード</span>
+								<!--<a href="assets/NSMBWii_Theme_forNinty.zip" download>-->
+    								<button class="border tertiary-border tertiary-text" data-ui="#end-errorsnack">
+										<i>file_download_off</i>
+										<span>ダウンロードできません</span>
 										<!--<div class="badge none border">更新</div>-->
 									</button>
-								</a>
+								<!--</a>-->
     						</nav>
 						</div>
 					</article>
