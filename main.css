@@ -80,6 +80,7 @@ body {
 	/*ダークモード対応系*/
 	background-color: light-dark(#ffffff,#1f1f1f);
 	color: light-dark(#000000,#bbbbbb);
+	caret: #339900;
 }
 
 
@@ -108,6 +109,27 @@ body ::-moz-selection {
 	font-family: "keifont";
 	font-weight: 600;
 	src: url(fonts/keifont.ttf) format("truetype");
+}
+
+
+a:focus {
+    outline-color: #339900;
+    outline-style: dashed;
+    outline-width: 3px;
+    outline-offset: 1px;
+	box-shadow: light-dark(#60a66087,#efefef85) 0px 0px 12px 6px;
+}
+
+button:focus {
+    border-color: #339900;
+    border-style: dashed;
+    border-width: 3px;
+}
+
+textarea:focus {
+    outline-color: #339900;
+    outline-style: dashed;
+    outline-width: 3px;
 }
 
 
@@ -154,7 +176,7 @@ a {
 }
 
 .header img {
-	transition: transform .5s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+	transition: transform .5s cubic-bezier(0.48, -0.64, 0.02, 1.82);
 }
 
 .header img:hover {
@@ -210,7 +232,7 @@ a:hover {
 
 .content-img img {
 	object-fit: cover;
-	transition: transform 0.3s;
+	transition: transform 0.3s cubic-bezier(0.03, 0.02, 0, 1.21);
 }
 
 .content-img:hover img {
